@@ -4,8 +4,9 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useState } from "react";
-
+import { DropzoneDialog } from "material-ui-dropzone";
 function CreateBicycle() {
+  const [open, setOpen] = React.useState(false);
   const [Bicycle, SetBicycle] = useState({
     category: "",
     description: "",
@@ -24,29 +25,56 @@ function CreateBicycle() {
   return (
     <Box>
       <h3> Create bicycle</h3>
-      <TextField
-        onChange={handleChangeBicycle}
-        name="category"
-        placeholder="Category"
-      ></TextField>
-      <TextField
-        onChange={handleChangeBicycle}
-        name="description"
-        placeholder="Description"
-      ></TextField>
-      <TextField
+      <div>
+        <TextField
+          onChange={handleChangeBicycle}
+          name="category"
+          placeholder="Category"
+        ></TextField>
+
+        <TextField
+          onChange={handleChangeBicycle}
+          name="description"
+          placeholder="Description"
+        ></TextField>
+        {/* <TextField
         onChange={handleChangeBicycle}
         name="photo"
         placeholder="Photo"
-      ></TextField>
-      <Button
-        onClick={() => {
-          console.log(Bicycle);
-          //   here i will send the object bicycle to the databasa
-        }}
-      >
-        Create
-      </Button>
+    ></TextField> */}
+        <div>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => setOpen(true)}
+          >
+            Add Image
+          </Button>
+
+          <DropzoneDialog
+            acceptedFiles={["image/*"]}
+            cancelButtonText={"cancel"}
+            submitButtonText={"submit"}
+            maxFileSize={5000000}
+            open={open}
+            onClose={() => setOpen(false)}
+            onSave={(files) => {
+              console.log("Files:", files);
+              setOpen(false);
+            }}
+            showPreviews={true}
+            showFileNamesInPreview={true}
+          />
+        </div>
+        <Button
+          onClick={() => {
+            console.log(Bicycle);
+            //   here i will send the object bicycle to the databasa
+          }}
+        >
+          Create
+        </Button>
+      </div>
     </Box>
   );
 }

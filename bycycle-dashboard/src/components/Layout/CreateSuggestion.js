@@ -16,7 +16,7 @@ function CreateSuggestion() {
     description: "",
   });
 
-  function handleChangeBicycle(e) {
+  function handleChangeSuggestion(e) {
     e.persist();
     const { name, value } = e.target;
     SetSuggestion((prevState) => ({
@@ -29,32 +29,33 @@ function CreateSuggestion() {
     <Box>
       <h3> Create Suggestion</h3>
       <div>
-        {/* <TextField
-          onChange={handleChangeBicycle}
+        <TextField
+          onChange={handleChangeSuggestion}
           name="photo"
           placeholder="Photo"
-        /> */}
+          type="file"
+        />
         <TextField
           name="location"
-          onChange={handleChangeBicycle}
+          onChange={handleChangeSuggestion}
           placeholder="Location"
         />
         <TextField
           name="duration"
-          onChange={handleChangeBicycle}
+          onChange={handleChangeSuggestion}
           placeholder="Duration"
         />
         <TextField
           name="distance"
-          onChange={handleChangeBicycle}
+          onChange={handleChangeSuggestion}
           placeholder="Distance"
         />
         <TextField
           name="description"
-          onChange={handleChangeBicycle}
+          onChange={handleChangeSuggestion}
           placeholder="Description"
         />
-        <div>
+        {/* <div>
           <Button
             variant="contained"
             color="primary"
@@ -76,7 +77,7 @@ function CreateSuggestion() {
             showPreviews={true}
             showFileNamesInPreview={true}
           />
-        </div>
+        </div> */}
         <Button onClick={() => console.log(Suggestion)}> Create</Button>
       </div>
     </Box>

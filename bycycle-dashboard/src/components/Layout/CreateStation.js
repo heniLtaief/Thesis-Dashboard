@@ -13,7 +13,7 @@ function CreateStation() {
     contact: "",
   });
 
-  function handleChangeBicycle(e) {
+  function handleChangeStation(e) {
     e.persist();
     const { name, value } = e.target;
     SetStation((prevState) => ({
@@ -25,23 +25,23 @@ function CreateStation() {
     <Box>
       <h3> Create Station</h3>
       <TextField
-        onChange={handleChangeBicycle}
+        onChange={handleChangeStation}
         name="location"
         placeholder="Loaction"
       ></TextField>
       <TextField
         type="number"
-        onChange={handleChangeBicycle}
+        onChange={handleChangeStation}
         name="numberOfBikes"
         placeholder="number of bikes"
       ></TextField>
       <TextField
-        onChange={handleChangeBicycle}
+        onChange={handleChangeStation}
         name="address"
         placeholder="address"
       ></TextField>
       <TextField
-        onChange={handleChangeBicycle}
+        onChange={handleChangeStation}
         name="contact"
         placeholder="contact"
       ></TextField>

@@ -1,8 +1,13 @@
-import React from "react";
+import * as React from "react";
 import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 import classnames from "classnames";
-import { Box, IconButton, Link } from "@material-ui/core";
+import { IconButton, Link } from "@material-ui/core";
 import Icon from "@mdi/react";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+
+import CreateStation from "./CreateStation";
 
 //icons
 import {
@@ -29,6 +34,7 @@ import Charts from "../../pages/charts";
 
 // context
 import { useLayoutState } from "../../context/LayoutContext";
+import { Title } from "@material-ui/icons";
 
 function Layout(props) {
   var classes = useStyles();
@@ -61,6 +67,23 @@ function Layout(props) {
             <Route path="/app/ui/icons" component={Icons} />
             <Route path="/app/ui/charts" component={Charts} />
           </Switch>
+          <CreateStation></CreateStation>
+          <Box>
+            <h3> Create bicycle</h3>
+            <TextField placeholder="Category" />
+            <TextField placeholder="Description" />
+            <TextField placeholder="Photo" />
+            <Button> Create</Button>
+          </Box>
+          <Box alignItems={"center"} justifyContent="space-between">
+            <h3> Create suggested road</h3>
+            <TextField placeholder="Location" />
+            <TextField placeholder="Duration" />
+            <TextField placeholder="Distance" />
+            <TextField placeholder="Description" />
+            <TextField placeholder="Photo" />
+            <Button> Create</Button>
+          </Box>
           <Box
             mt={5}
             width={"100%"}

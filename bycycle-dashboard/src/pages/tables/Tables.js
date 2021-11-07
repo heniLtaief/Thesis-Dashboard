@@ -11,10 +11,12 @@ import Table from "../dashboard/components/Table/Table";
 // data
 import mock from "../dashboard/mock";
 
+// this is hardcoded data for the stations
+// here we fetch the data of the stations 
 const datatableData = [
-  ["Sidi Boussaid", "Example Inc.", "Tunis", "2026"],
-  ["La Marsa", "Example Inc.", "Tunis,Marsa", "2078"],
-  ["Carthage", "Example Inc.", "Amilcar", "1054"],
+  ["Sidi Boussaid", "Imad", "Tunis", "25"],
+  ["La Marsa", "Heni", "Tunis,Marsa", "15"],
+  ["Carthage", "Elyes", "Amilcar", "10"],
 ];
 
 const useStyles = makeStyles((theme) => ({
@@ -33,7 +35,7 @@ export default function Tables() {
           <MUIDataTable
             title="Station List"
             data={datatableData}
-            columns={["Station", "Availabilty", "City", "Zip"]}
+            columns={["Station", "Contact", "Address", "Number of bikes"]}
             options={{
               filterType: "checkbox",
             }}

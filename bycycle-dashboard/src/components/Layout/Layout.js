@@ -8,6 +8,8 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
 import CreateStation from "./CreateStation";
+import CreateBicycle from "./CreateBicycle";
+import CreateSuggestion from "./CreateSuggestion";
 
 //icons
 import {
@@ -68,22 +70,8 @@ function Layout(props) {
             <Route path="/app/ui/charts" component={Charts} />
           </Switch>
           <CreateStation></CreateStation>
-          <Box>
-            <h3> Create bicycle</h3>
-            <TextField placeholder="Category" />
-            <TextField placeholder="Description" />
-            <TextField placeholder="Photo" />
-            <Button> Create</Button>
-          </Box>
-          <Box alignItems={"center"} justifyContent="space-between">
-            <h3> Create suggested road</h3>
-            <TextField placeholder="Location" />
-            <TextField placeholder="Duration" />
-            <TextField placeholder="Distance" />
-            <TextField placeholder="Description" />
-            <TextField placeholder="Photo" />
-            <Button> Create</Button>
-          </Box>
+          <CreateBicycle></CreateBicycle>
+          <CreateSuggestion></CreateSuggestion>
           <Box
             mt={5}
             width={"100%"}

@@ -13,6 +13,7 @@ function CreateBicycle() {
   });
 
   function handleChangeBicycle(e) {
+    e.persist();
     const { name, value } = e.target;
     SetBicycle((prevState) => ({
       ...prevState,

@@ -15,6 +15,7 @@ function CreateSuggestion() {
   });
 
   function handleChangeBicycle(e) {
+    e.persist();
     const { name, value } = e.target;
     SetSuggestion((prevState) => ({
       ...prevState,

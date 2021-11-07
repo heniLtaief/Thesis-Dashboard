@@ -14,6 +14,7 @@ function CreateStation() {
   });
 
   function handleChangeBicycle(e) {
+    e.persist();
     const { name, value } = e.target;
     SetStation((prevState) => ({
       ...prevState,

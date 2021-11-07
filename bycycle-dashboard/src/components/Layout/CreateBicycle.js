@@ -25,21 +25,28 @@ function CreateBicycle() {
     <Box>
       <h3> Create bicycle</h3>
       <TextField
-        handleChangeBicycle={handleChangeBicycle}
+        onChange={handleChangeBicycle}
         name="category"
         placeholder="Category"
       ></TextField>
       <TextField
-        handleChangeBicycle={handleChangeBicycle}
+        onChange={handleChangeBicycle}
         name="description"
         placeholder="Description"
       ></TextField>
       <TextField
-        handleChangeBicycle={handleChangeBicycle}
+        onChange={handleChangeBicycle}
         name="photo"
         placeholder="Photo"
       ></TextField>
-      <Button onClick={() => console.log(Bicyle)}> Create</Button>
+      <Button
+        onClick={() => {
+          console.log(Bicyle);
+          //   here i will send the object bicycle to the databasa
+        }}
+      >
+        Create
+      </Button>
     </Box>
   );
 }

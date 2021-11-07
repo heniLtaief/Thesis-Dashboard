@@ -6,7 +6,7 @@ import Button from "@mui/material/Button";
 import { useState } from "react";
 
 function CreateBicycle() {
-  const [Bicyle, SetBicycle] = useState({
+  const [Bicycle, SetBicycle] = useState({
     category: "",
     description: "",
     photo: "",
@@ -18,7 +18,6 @@ function CreateBicycle() {
       ...prevState,
       [name]: value,
     }));
-    console.log(value);
   }
 
   return (
@@ -41,7 +40,7 @@ function CreateBicycle() {
       ></TextField>
       <Button
         onClick={() => {
-          console.log(Bicyle);
+          console.log(Bicycle);
           //   here i will send the object bicycle to the databasa
         }}
       >

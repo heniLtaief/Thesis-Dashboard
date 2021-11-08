@@ -46,11 +46,13 @@ export default function SuggestionTable() {
             data={suggestionTable}
             columns={[
               "To be removed",
-              "Location",
+              "ID",
               "Created at",
               "Description",
               "Distance",
               "Duration",
+              "Location",
+              "PhotoUrl",
             ]}
             options={{
               filterType: "checkbox",

@@ -50,6 +50,7 @@ export default function BicycleTable() {
               "Category",
               "Purchase Date",
               "Description",
+              "photo",
             ]}
             options={{
               filterType: "checkbox",

@@ -1,8 +1,15 @@
-import React from "react";
+import * as React from "react";
 import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 import classnames from "classnames";
-import { Box, IconButton, Link } from "@material-ui/core";
+import { IconButton, Link } from "@material-ui/core";
 import Icon from "@mdi/react";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+
+import CreateStation from "./CreateStation";
+import CreateBicycle from "./CreateBicycle";
+import CreateSuggestion from "./CreateSuggestion";
 
 //icons
 import { mdiGithub as GithubIcon } from "@mdi/js";
@@ -25,6 +32,7 @@ import Charts from "../../pages/charts";
 
 // context
 import { useLayoutState } from "../../context/LayoutContext";
+import { Title } from "@material-ui/icons";
 
 function Layout(props) {
   var classes = useStyles();
@@ -57,6 +65,9 @@ function Layout(props) {
             <Route path="/app/ui/icons" component={Icons} />
             <Route path="/app/ui/charts" component={Charts} />
           </Switch>
+          <CreateStation></CreateStation>
+          <CreateBicycle></CreateBicycle>
+          <CreateSuggestion></CreateSuggestion>
           <Box
             mt={5}
             width={"100%"}

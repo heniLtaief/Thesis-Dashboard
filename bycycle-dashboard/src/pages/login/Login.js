@@ -121,9 +121,10 @@ function Login(props) {
                   <CircularProgress size={26} className={classes.loginLoader} />
                 ) : (
                   <Button
-                    // disabled={
-                    //   loginValue.length === 0 || passwordValue.length === 0
-                    // }
+                    disabled={
+                      LoginAdmin.User.length === 0 ||
+                      LoginAdmin.Password.length === 0
+                    }
                     onClick={
                       () => {
                         console.log(LoginAdmin);
@@ -132,7 +133,7 @@ function Login(props) {
                             LoginAdmin,
                           })
                           .then((adminLogged) => {
-                            console.log(adminLogged);
+                            console.log(adminLogged.data);
                           })
                           .catch((err) => {
                             console.log(err);
@@ -245,11 +246,11 @@ function Login(props) {
                     //   setIsLoading,
                     //   setError,
                     // )
-                    // disabled={
-                    //   loginValue.length === 0 ||
-                    //   passwordValue.length === 0 ||
-                    //   nameValue.length === 0
-                    // }
+                    disabled={
+                      RegisterAdmin.User.length === 0 ||
+                      RegisterAdmin.Password.length === 0 ||
+                      RegisterAdmin.Email.length === 0
+                    }
                     // post request here to register
                     onClick={() => {
                       console.log(RegisterAdmin);

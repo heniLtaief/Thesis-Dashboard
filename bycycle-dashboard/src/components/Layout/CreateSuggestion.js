@@ -6,6 +6,8 @@ import { useState } from "react";
 
 import { DropzoneDialog } from "material-ui-dropzone";
 import { DropzoneArea } from "material-ui-dropzone";
+
+import axios from "axios";
 function CreateSuggestion() {
   const [open, setOpen] = React.useState(false);
   const [Suggestion, SetSuggestion] = useState({
@@ -78,7 +80,20 @@ function CreateSuggestion() {
             showFileNamesInPreview={true}
           />
         </div> */}
-        <Button onClick={() => console.log(Suggestion)}> Create</Button>
+        <Button
+          onClick={() => {
+            axios
+              .post("http://localhost:3002/addsuggestion", Suggestion)
+              .then((result) => {
+                console.log("suggestion created", result.data);
+              })
+              .catch((err) => {
+                console.log(err);
+              });
+          }}
+        >
+          Create
+        </Button>
       </div>
     </Box>
   );

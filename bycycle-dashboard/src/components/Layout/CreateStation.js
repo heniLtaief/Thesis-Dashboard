@@ -8,10 +8,13 @@ import axios from "axios";
 
 function CreateStation() {
   const [Station, SetStation] = useState({
-    location: "",
-    numberOfBikes: 0,
-    address: "",
-    contact: "",
+    Name: "",
+    Email: "",
+    Situation: "",
+    Incoming: "",
+    City: "",
+    Status: "",
+    BikeCount: 0,
   });
 
   function handleChangeStation(e) {
@@ -27,24 +30,39 @@ function CreateStation() {
       <h3> Create Station</h3>
       <TextField
         onChange={handleChangeStation}
-        name="location"
-        placeholder="Loaction"
+        name="Name"
+        placeholder="Name"
       ></TextField>
       <TextField
         type="number"
         onChange={handleChangeStation}
-        name="numberOfBikes"
+        name="BikeCount"
         placeholder="number of bikes"
       ></TextField>
       <TextField
         onChange={handleChangeStation}
-        name="address"
-        placeholder="address"
+        name="Situation"
+        placeholder="Situation"
       ></TextField>
       <TextField
         onChange={handleChangeStation}
-        name="contact"
-        placeholder="contact"
+        name="Incoming"
+        placeholder="Incoming"
+      ></TextField>
+      <TextField
+        onChange={handleChangeStation}
+        name="Status"
+        placeholder="Status"
+      ></TextField>
+      <TextField
+        onChange={handleChangeStation}
+        name="City"
+        placeholder="City"
+      ></TextField>
+      <TextField
+        onChange={handleChangeStation}
+        name="Email"
+        placeholder="Email"
       ></TextField>
       <Button
         onClick={() => {

@@ -42,7 +42,7 @@ export default function TableComponent({ data }) {
               <TableCell>
                 <Chip
                   label={status}
-                  classes={{ root: classes[states[status.toLowerCase()]] }}
+                  classes={{ root: classes[states[status]] }}
                 />
               </TableCell>
             </TableRow>

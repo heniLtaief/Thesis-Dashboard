@@ -39,7 +39,7 @@ function Login(props) {
   return (
     <Grid container className={classes.container}>
       <div className={classes.logotypeContainer}>
-        <img src={bg} alt="picture" className={classes.logotypeImage} />
+        <img src={bg} alt="bg" className={classes.logotypeImage} />
       </div>
       <div className={classes.formContainer}>
         <div className={classes.form}>

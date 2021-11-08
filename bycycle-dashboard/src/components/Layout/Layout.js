@@ -5,11 +5,7 @@ import { Box, IconButton, Link } from "@material-ui/core";
 import Icon from "@mdi/react";
 
 //icons
-import {
-  mdiFacebook as FacebookIcon,
-  mdiTwitter as TwitterIcon,
-  mdiGithub as GithubIcon,
-} from "@mdi/js";
+import { mdiGithub as GithubIcon } from "@mdi/js";
 
 // styles
 import useStyles from "./styles";

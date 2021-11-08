@@ -2,27 +2,17 @@ import React, { useState, useEffect } from "react";
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import MUIDataTable from "mui-datatables";
-import BicycleTable from "./BicycleTable";
-import StationTable from "./StationTable";
-import SuggestionTable from "./SuggestionTable";
 
 // components
 import PageTitle from "../../components/PageTitle";
-// import Widget from "../../components/Widget";
-// import Table from "../dashboard/components/Table/Table";
-
-// data
-// import mock from "../dashboard/mock";
 import axios from "axios";
-
 const useStyles = makeStyles((theme) => ({
   tableOverflow: {
     overflow: "auto",
   },
 }));
 
-export default function Tables() {
-  const classes = useStyles();
+export default function StationTable() {
   const [Stations, SetStations] = useState([]);
   var stationTable = Stations.map(function (obj) {
     return Object.keys(obj)
@@ -48,25 +38,30 @@ export default function Tables() {
 
   return (
     <>
-      <SuggestionTable></SuggestionTable>
-      <StationTable></StationTable>
-      <BicycleTable></BicycleTable>
+      <PageTitle title="Stations" />
+      <Grid container spacing={4}>
+        <Grid item xs={12}>
+          <MUIDataTable
+            title="Station List"
+            data={stationTable}
+            columns={[
+              "Number of bikes",
+              "City",
+              "Email",
+              "Income",
+              "Status",
+              "Name",
+              "Situation",
+              "StationId",
+              "CreatedA",
+              "UpdatedAt",
+            ]}
+            options={{
+              filterType: "checkbox",
+            }}
+          />
+        </Grid>
+      </Grid>
     </>
   );
 }
-
-/* 
-          {
-          <Grid item xs={12}>
-
-          <Widget
-            title="Incoming Stats By station"
-            upperTitle
-            noBodyPadding
-            bodyClass={classes.tableOverflow}
-          >
-            <Table data={mock.table} />
-          </Widget>
-         </Grid>
-        }
-        */

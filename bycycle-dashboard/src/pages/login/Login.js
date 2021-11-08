@@ -11,6 +11,7 @@ import {
 } from "@material-ui/core";
 import { withRouter } from "react-router-dom";
 import classnames from "classnames";
+import axios from "axios";
 
 // styles
 import useStyles from "./styles";
@@ -38,15 +39,31 @@ function Login(props) {
     Password: "",
     Email: "",
   });
+  function handleRegister(e) {
+    e.persist();
+    const { name, value } = e.target;
+    setRegisterAdmin((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  }
+
   var [LoginAdmin, setLoginAdmin] = useState({
     User: "",
     Password: "",
   });
+  function handleLogin(e) {
+    e.persist();
+    const { name, value } = e.target;
+    setLoginAdmin((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  }
 
-  
-  var [nameValue, setNameValue] = useState("Elyes Ben khoud");
-  var [loginValue, setLoginValue] = useState("elyes@gmail.com");
-  var [passwordValue, setPasswordValue] = useState("elyes");
+  // var [nameValue, setNameValue] = useState("Elyes Ben khoud");
+  // var [loginValue, setLoginValue] = useState("elyes@gmail.com");
+  // var [passwordValue, setPasswordValue] = useState("elyes");
 
   return (
     <Grid container className={classes.container}>
@@ -75,23 +92,25 @@ function Login(props) {
                     input: classes.textField,
                   },
                 }}
-                value={loginValue}
-                onChange={(e) => setLoginValue(e.target.value)}
+                // value={loginValue}
+                name="User"
+                onChange={handleLogin}
                 margin="normal"
-                placeholder="Email Adress"
-                type="email"
+                placeholder="Username"
+                type="text"
                 fullWidth
               />
               <TextField
-                id="password"
+                // id="password"
+                name="Password"
                 InputProps={{
                   classes: {
                     underline: classes.textFieldUnderline,
                     input: classes.textField,
                   },
                 }}
-                value={passwordValue}
-                onChange={(e) => setPasswordValue(e.target.value)}
+                // value={passwordValue}
+                onChange={handleLogin}
                 margin="normal"
                 placeholder="Password"
                 type="password"
@@ -102,18 +121,31 @@ function Login(props) {
                   <CircularProgress size={26} className={classes.loginLoader} />
                 ) : (
                   <Button
-                    disabled={
-                      loginValue.length === 0 || passwordValue.length === 0
-                    }
-                    onClick={() =>
-                      loginUser(
-                        userDispatch,
-                        loginValue,
-                        passwordValue,
-                        props.history,
-                        setIsLoading,
-                        setError,
-                      )
+                    // disabled={
+                    //   loginValue.length === 0 || passwordValue.length === 0
+                    // }
+                    onClick={
+                      () => {
+                        console.log(LoginAdmin);
+                        axios
+                          .post("http://localhost:3002/admin/check", {
+                            LoginAdmin,
+                          })
+                          .then((adminLogged) => {
+                            console.log(adminLogged);
+                          })
+                          .catch((err) => {
+                            console.log(err);
+                          });
+                      }
+                      // loginUser(
+                      //   userDispatch,
+                      //   loginValue,
+                      //   passwordValue,
+                      //   props.history,
+                      //   setIsLoading,
+                      //   setError,
+                      // )
                     }
                     variant="contained"
                     color="primary"
@@ -156,14 +188,16 @@ function Login(props) {
                     input: classes.textField,
                   },
                 }}
-                value={nameValue}
-                onChange={(e) => setNameValue(e.target.value)}
+                // value={nameValue}
+                name="User"
+                onChange={handleRegister}
                 margin="normal"
                 placeholder="Full Name"
                 type="text"
                 fullWidth
               />
               <TextField
+                name="Email"
                 id="email"
                 InputProps={{
                   classes: {
@@ -171,23 +205,24 @@ function Login(props) {
                     input: classes.textField,
                   },
                 }}
-                value={loginValue}
-                onChange={(e) => setLoginValue(e.target.value)}
+                // value={loginValue}
+                onChange={handleRegister}
                 margin="normal"
                 placeholder="Email Adress"
                 type="email"
                 fullWidth
               />
               <TextField
-                id="password"
+                // id="password"
+                name="Password"
                 InputProps={{
                   classes: {
                     underline: classes.textFieldUnderline,
                     input: classes.textField,
                   },
                 }}
-                value={passwordValue}
-                onChange={(e) => setPasswordValue(e.target.value)}
+                // value={passwordValue}
+                onChange={handleRegister}
                 margin="normal"
                 placeholder="Password"
                 type="password"
@@ -198,21 +233,37 @@ function Login(props) {
                   <CircularProgress size={26} />
                 ) : (
                   <Button
-                    onClick={() =>
-                      loginUser(
-                        userDispatch,
-                        loginValue,
-                        passwordValue,
-                        props.history,
-                        setIsLoading,
-                        setError,
-                      )
-                    }
-                    disabled={
-                      loginValue.length === 0 ||
-                      passwordValue.length === 0 ||
-                      nameValue.length === 0
-                    }
+                    // onClick={()=>{
+                    //   console.log(RegisterAdmin);
+                    // }}
+
+                    // loginUser(
+                    //   userDispatch,
+                    //   loginValue,
+                    //   passwordValue,
+                    //   props.history,
+                    //   setIsLoading,
+                    //   setError,
+                    // )
+                    // disabled={
+                    //   loginValue.length === 0 ||
+                    //   passwordValue.length === 0 ||
+                    //   nameValue.length === 0
+                    // }
+                    // post request here to register
+                    onClick={() => {
+                      console.log(RegisterAdmin);
+                      axios
+                        .post("http://localhost:3002/admin", {
+                          RegisterAdmin,
+                        })
+                        .then((admin) => {
+                          console.log(admin);
+                        })
+                        .catch((err) => {
+                          console.log(err);
+                        });
+                    }}
                     size="large"
                     variant="contained"
                     color="primary"

@@ -28,42 +28,67 @@ function Login(props) {
 
   // global
   var userDispatch = useUserDispatch();
-
   // local
   var [isLoading, setIsLoading] = useState(false);
   var [error, setError] = useState(null);
   var [activeTabId, setActiveTabId] = useState(0);
 
-  var [RegisterAdmin, setRegisterAdmin] = useState({
-    User: "",
-    Password: "",
-    Email: "",
-  });
-  function handleRegister(e) {
-    e.persist();
-    const { name, value } = e.target;
-    setRegisterAdmin((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  }
+  // var [RegisterAdmin, setRegisterAdmin] = useState({
+  //   User: "",
+  //   Password: "",
+  //   Email: "",
+  // });
+  // function handleRegister(e) {
+  //   e.persist();
+  //   const { name, value } = e.target;
+  //   setRegisterAdmin((prevState) => ({
+  //     ...prevState,
+  //     [name]: value,
+  //   }));
+  // }
 
-  var [LoginAdmin, setLoginAdmin] = useState({
-    User: "",
-    Password: "",
-  });
-  function handleLogin(e) {
-    e.persist();
-    const { name, value } = e.target;
-    setLoginAdmin((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  }
+  // var [LoginAdmin, setLoginAdmin] = useState({
+  //   User: "",
+  //   Password: "",
+  // });
+  // function handleLogin(e) {
+  //   e.persist();
+  //   const { name, value } = e.target;
+  //   setLoginAdmin((prevState) => ({
+  //     ...prevState,
+  //     [name]: value,
+  //   }));
+  // }
 
-  // var [nameValue, setNameValue] = useState("Elyes Ben khoud");
-  // var [loginValue, setLoginValue] = useState("elyes@gmail.com");
-  // var [passwordValue, setPasswordValue] = useState("elyes");
+  var [nameValue, setNameValue] = useState("Elyes Ben khoud");
+  var [loginValue, setLoginValue] = useState("elyes@gmail.com");
+  var [passwordValue, setPasswordValue] = useState("elyes");
+
+  // const registerAdmin = () => {
+  //   axios
+  //     .post("http://localhost:3002/admin", {
+  //       RegisterAdmin,
+  //     })
+  //     .then((admin) => {
+  //       console.log(admin);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+
+  // const checkAdmin = () => {
+  //   axios
+  //     .post("http://localhost:3002/admin/check", {
+  //       LoginAdmin,
+  //     })
+  //     .then((adminLogged) => {
+  //       console.log(adminLogged.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
   return (
     <Grid container className={classes.container}>
@@ -92,16 +117,16 @@ function Login(props) {
                     input: classes.textField,
                   },
                 }}
-                // value={loginValue}
+                value={loginValue}
                 name="User"
-                onChange={handleLogin}
+                // onChange={handleLogin}
                 margin="normal"
                 placeholder="Username"
                 type="text"
                 fullWidth
               />
               <TextField
-                // id="password"
+                id="password"
                 name="Password"
                 InputProps={{
                   classes: {
@@ -109,8 +134,8 @@ function Login(props) {
                     input: classes.textField,
                   },
                 }}
-                // value={passwordValue}
-                onChange={handleLogin}
+                value={passwordValue}
+                // onChange={handleLogin}
                 margin="normal"
                 placeholder="Password"
                 type="password"
@@ -121,32 +146,23 @@ function Login(props) {
                   <CircularProgress size={26} className={classes.loginLoader} />
                 ) : (
                   <Button
-                    disabled={
-                      LoginAdmin.User.length === 0 ||
-                      LoginAdmin.Password.length === 0
-                    }
+                    // disabled={
+                    //   LoginAdmin.User.length === 0 ||
+                    //   LoginAdmin.Password.length === 0
+                    // }
                     onClick={
-                      () => {
-                        console.log(LoginAdmin);
-                        axios
-                          .post("http://localhost:3002/admin/check", {
-                            LoginAdmin,
-                          })
-                          .then((adminLogged) => {
-                            console.log(adminLogged.data);
-                          })
-                          .catch((err) => {
-                            console.log(err);
-                          });
-                      }
-                      // loginUser(
-                      //   userDispatch,
-                      //   loginValue,
-                      //   passwordValue,
-                      //   props.history,
-                      //   setIsLoading,
-                      //   setError,
-                      // )
+                      // () => {
+                      //   checkAdmin();
+                      // }
+                      () =>
+                        loginUser(
+                          userDispatch,
+                          loginValue,
+                          passwordValue,
+                          props.history,
+                          setIsLoading,
+                          setError,
+                        )
                     }
                     variant="contained"
                     color="primary"
@@ -189,9 +205,9 @@ function Login(props) {
                     input: classes.textField,
                   },
                 }}
-                // value={nameValue}
+                value={nameValue}
                 name="User"
-                onChange={handleRegister}
+                // onChange={handleRegister}
                 margin="normal"
                 placeholder="Full Name"
                 type="text"
@@ -206,15 +222,15 @@ function Login(props) {
                     input: classes.textField,
                   },
                 }}
-                // value={loginValue}
-                onChange={handleRegister}
+                value={loginValue}
+                // onChange={handleRegister}
                 margin="normal"
                 placeholder="Email Adress"
                 type="email"
                 fullWidth
               />
               <TextField
-                // id="password"
+                id="password"
                 name="Password"
                 InputProps={{
                   classes: {
@@ -222,8 +238,8 @@ function Login(props) {
                     input: classes.textField,
                   },
                 }}
-                // value={passwordValue}
-                onChange={handleRegister}
+                value={passwordValue}
+                // onChange={handleRegister}
                 margin="normal"
                 placeholder="Password"
                 type="password"
@@ -234,37 +250,26 @@ function Login(props) {
                   <CircularProgress size={26} />
                 ) : (
                   <Button
-                    // onClick={()=>{
-                    //   console.log(RegisterAdmin);
-                    // }}
-
-                    // loginUser(
-                    //   userDispatch,
-                    //   loginValue,
-                    //   passwordValue,
-                    //   props.history,
-                    //   setIsLoading,
-                    //   setError,
-                    // )
-                    disabled={
-                      RegisterAdmin.User.length === 0 ||
-                      RegisterAdmin.Password.length === 0 ||
-                      RegisterAdmin.Email.length === 0
-                    }
-                    // post request here to register
                     onClick={() => {
-                      console.log(RegisterAdmin);
-                      axios
-                        .post("http://localhost:3002/admin", {
-                          RegisterAdmin,
-                        })
-                        .then((admin) => {
-                          console.log(admin);
-                        })
-                        .catch((err) => {
-                          console.log(err);
-                        });
+                      // console.log(RegisterAdmin);
+
+                      loginUser(
+                        userDispatch,
+                        loginValue,
+                        passwordValue,
+                        props.history,
+                        setIsLoading,
+                        setError,
+                      );
                     }}
+                    // disabled={
+                    //   RegisterAdmin.User.length === 0 ||
+                    //   RegisterAdmin.Password.length === 0 ||
+                    //   RegisterAdmin.Email.length === 0
+                    // }
+                    // onClick={() => {
+                    //   registerAdmin();
+                    // }}
                     size="large"
                     variant="contained"
                     color="primary"

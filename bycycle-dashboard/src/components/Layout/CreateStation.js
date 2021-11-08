@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useState } from "react";
+import axios from "axios";
 
 function CreateStation() {
   const [Station, SetStation] = useState({
@@ -45,7 +46,19 @@ function CreateStation() {
         name="contact"
         placeholder="contact"
       ></TextField>
-      <Button onClick={() => console.log(Station)}>
+      <Button
+        onClick={() => {
+          console.log(Station);
+          axios
+            .post("http://localhost:3002/station", Station)
+            .then((result) => {
+              console.log("station created", result.data);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        }}
+      >
         {/* here i will send the station object to the database */}
         {/* I still need to handle the type of bikes number */}
         Create

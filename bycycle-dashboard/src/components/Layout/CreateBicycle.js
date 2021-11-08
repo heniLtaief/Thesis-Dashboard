@@ -5,6 +5,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useState } from "react";
 import { DropzoneDialog } from "material-ui-dropzone";
+import axios from "axios";
 function CreateBicycle() {
   const [open, setOpen] = React.useState(false);
   const [Bicycle, SetBicycle] = useState({
@@ -47,6 +48,14 @@ function CreateBicycle() {
         <Button
           onClick={() => {
             console.log(Bicycle);
+            axios
+              .post("http://localhost:3002/bicycle", Bicycle)
+              .then((result) => {
+                console.log("bike created", result.data);
+              })
+              .catch((err) => {
+                console.log(err);
+              });
             //   here i will send the object bicycle to the databasa
           }}
         >

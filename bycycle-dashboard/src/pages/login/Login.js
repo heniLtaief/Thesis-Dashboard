@@ -32,6 +32,18 @@ function Login(props) {
   var [isLoading, setIsLoading] = useState(false);
   var [error, setError] = useState(null);
   var [activeTabId, setActiveTabId] = useState(0);
+
+  var [RegisterAdmin, setRegisterAdmin] = useState({
+    User: "",
+    Password: "",
+    Email: "",
+  });
+  var [LoginAdmin, setLoginAdmin] = useState({
+    User: "",
+    Password: "",
+  });
+
+  
   var [nameValue, setNameValue] = useState("Elyes Ben khoud");
   var [loginValue, setLoginValue] = useState("elyes@gmail.com");
   var [passwordValue, setPasswordValue] = useState("elyes");

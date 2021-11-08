@@ -23,29 +23,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Tables() {
   const classes = useStyles();
-  const [Stations, SetStations] = useState([]);
-  var stationTable = Stations.map(function (obj) {
-    return Object.keys(obj)
-      .sort()
-      .map(function (key) {
-        return obj[key];
-      });
-  });
-  const getAllStations = () => {
-    axios
-      .get(`http://localhost:3002/allstations`)
-      .then((response) => {
-        SetStations(response.data);
-      })
-      .catch((err) => {
-        console.log("err", err);
-      });
-  };
-
-  useEffect(() => {
-    getAllStations();
-  }, []);
-
   return (
     <>
       <SuggestionTable></SuggestionTable>

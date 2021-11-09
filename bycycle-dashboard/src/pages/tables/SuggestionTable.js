@@ -21,9 +21,10 @@ export default function SuggestionTable() {
         return obj[key];
       });
   });
+  console.log(suggestionTable);
   const getAllsuggestions = () => {
     axios
-      .get(`http://localhost:3002/suggestion`)
+      .get(`https://bycyclebackend.herokuapp.com/suggestion`)
       .then((response) => {
         Setsuggestions(response.data);
       })
@@ -45,7 +46,6 @@ export default function SuggestionTable() {
             title="suggestion List"
             data={suggestionTable}
             columns={[
-              "To be removed",
               "ID",
               "Created at",
               "Description",

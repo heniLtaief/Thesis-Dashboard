@@ -68,7 +68,7 @@ function CreateStation() {
         onClick={() => {
           console.log(Station);
           axios
-            .post("http://localhost:3002/station", Station)
+            .post("http://localhost:3000/station", Station)
             .then((result) => {
               console.log("station created", result.data);
             })

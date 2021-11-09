@@ -49,7 +49,7 @@ function CreateBicycle() {
           onClick={() => {
             console.log(Bicycle);
             axios
-              .post("http://localhost:3002/bicycle", Bicycle)
+              .post(`https://bycyclebackend.herokuapp.com/bicycle`, Bicycle)
               .then((result) => {
                 console.log("bike created", result.data);
               })

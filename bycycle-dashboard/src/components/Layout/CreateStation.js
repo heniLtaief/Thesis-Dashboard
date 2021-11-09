@@ -68,7 +68,7 @@ function CreateStation() {
         onClick={() => {
           console.log(Station);
           axios
-            .post("http://localhost:3002/station", Station)
+            .post("https://bycyclebackend.herokuapp.com/station", Station)
             .then((result) => {
               console.log("station created", result.data);
             })

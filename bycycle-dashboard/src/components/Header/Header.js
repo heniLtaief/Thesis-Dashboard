@@ -7,7 +7,6 @@ import {
   Menu,
   MenuItem,
   Fab,
-  Link,
 } from "@material-ui/core";
 import {
   Menu as MenuIcon,
@@ -107,7 +106,7 @@ export default function Header(props) {
 
   return (
     <AppBar position="fixed" className={classes.appBar}>
-      <Toolbar className={classes.toolbar}>
+      <Toolbar  className={classes.toolbar}>
         <IconButton
           color="inherit"
           onClick={() => toggleSidebar(layoutDispatch)}

@@ -1,9 +1,7 @@
 import React from "react";
 import { Grid } from "@material-ui/core";
-
 // styles
 import useStyles from "./styles";
-
 // components
 import PageTitle from "../../components/PageTitle";
 import Widget from "../../components/Widget";
@@ -14,7 +12,7 @@ export default function TypographyPage() {
 
   return (
     <>
-      <PageTitle title="Features nzidouhom" />
+      <PageTitle title="ByCycle Creation Board" />
       {/* <Grid container spacing={4}>
         <Grid item xs={12} md={6}>
           <Widget title="Headings" disableWidgetMenu>

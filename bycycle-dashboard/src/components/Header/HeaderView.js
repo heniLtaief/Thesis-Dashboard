@@ -79,7 +79,7 @@ const notifications = [
 ];
 
 const Header = ({ classes, isSidebarOpened, toggleSidebar, ...props }) => (
-  <AppBar position="fixed" className={classes.appBar}>
+  <AppBar position="fixed">
     <Toolbar className={classes.toolbar}>
       <IconButton
         color="inherit"

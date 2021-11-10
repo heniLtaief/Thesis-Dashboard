@@ -12,20 +12,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function BicycleTable() {
-  const [Bicycles, SetBicycles] = useState([]);
-  var bicycleTable = Bicycles.map(function (obj) {
+export default function ReviewTable() {
+  const [reviews, SetReviews] = useState([]);
+  var reviewTable = reviews.map(function (obj) {
     return Object.keys(obj)
       .sort()
       .map(function (key) {
         return obj[key];
       });
   });
-  const getAllBicycles = () => {
+  const GetAllreviews = () => {
     axios
-      .get(`https://bycyclethesis.herokuapp.com/bicycle`)
+      .get(`https://bycyclethesis.herokuapp.com/reviews`)
       .then((response) => {
-        SetBicycles(response.data);
+        SetReviews(response.data);
       })
       .catch((err) => {
         console.log("err", err);
@@ -33,25 +33,18 @@ export default function BicycleTable() {
   };
 
   useEffect(() => {
-    getAllBicycles();
+    GetAllreviews();
   }, []);
 
   return (
     <>
-      <PageTitle title="Bicycles" />
+      <PageTitle title="Reviews" />
       <Grid container spacing={4}>
         <Grid item xs={12}>
           <MUIDataTable
-            title="Bicycle List"
-            data={bicycleTable}
-            columns={[
-              "Incident",
-              "Bike Id",
-              "Category",
-              "Purchase Date",
-              "Description",
-              "photo",
-            ]}
+            title="review List"
+            data={reviewTable}
+            columns={["User", "ReviewId", "Review Date", "Rating", "review"]}
             options={{
               filterType: "checkbox",
             }}

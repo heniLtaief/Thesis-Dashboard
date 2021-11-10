@@ -24,7 +24,7 @@ export default function SuggestionTable() {
   console.log(suggestionTable);
   const getAllsuggestions = () => {
     axios
-      .get(`https://bycyclebackend.herokuapp.com/suggestion`)
+      .get(`https://bycyclethesis.herokuapp.com/suggestion`)
       .then((response) => {
         Setsuggestions(response.data);
       })
@@ -46,6 +46,7 @@ export default function SuggestionTable() {
             title="suggestion List"
             data={suggestionTable}
             columns={[
+              "Incidents",
               "ID",
               "Created at",
               "Description",

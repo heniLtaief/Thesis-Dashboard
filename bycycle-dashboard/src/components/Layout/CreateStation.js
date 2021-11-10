@@ -14,7 +14,7 @@ function CreateStation() {
     Incoming: "",
     City: "",
     Status: "",
-    BikeCount: 0,
+    BikeCount: "",
   });
 
   function handleChangeStation(e) {

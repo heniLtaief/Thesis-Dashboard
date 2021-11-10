@@ -38,7 +38,7 @@ export default function ReviewTable() {
 
   return (
     <>
-      <PageTitle title="reviews" />
+      <PageTitle title="Reviews" />
       <Grid container spacing={4}>
         <Grid item xs={12}>
           <MUIDataTable

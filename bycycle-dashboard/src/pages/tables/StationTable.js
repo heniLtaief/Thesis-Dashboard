@@ -46,11 +46,11 @@ export default function StationTable() {
             data={stationTable}
             columns={[
               "Number of bikes",
-              "Email",
               "City",
+              "Email",
               "Income",
-              "Status",
               "Name",
+              "Status",
               "Situation",
               "Incident",
               "StationId",

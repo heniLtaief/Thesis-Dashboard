@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Grid } from "@material-ui/core";
 import { useTheme } from "@material-ui/styles";
+import axios from "axios";
 import {
   CartesianGrid,
   Legend,
@@ -21,49 +22,57 @@ import ApexLineChart from "./components/ApexLineChart";
 import ApexHeatmap from "./components/ApexHeatmap";
 import PageTitle from "../../components/PageTitle/PageTitle";
 
-
-
-
-
 const lineChartData = [
   {
-    name: "Page A",
+    name: "Station A",
     uv: 4000,
     pv: 2400,
     amt: 2400,
   },
   {
-    name: "Page B",
+    name: "Station B",
     uv: 3000,
     pv: 1398,
     amt: 2210,
   },
   {
-    name: "Page C",
+    name: "Station C",
     uv: 2000,
     pv: 9800,
     amt: 2290,
   },
   {
-    name: "Page D",
+    name: "Station D",
     uv: 2780,
     pv: 3908,
     amt: 2000,
   },
   {
-    name: "Page E",
+    name: "Station E",
     uv: 1890,
     pv: 4800,
     amt: 2181,
   },
   {
-    name: "Page F",
+    name: "Station F",
     uv: 2390,
     pv: 3800,
     amt: 2500,
   },
   {
-    name: "Page G",
+    name: "Station G",
+    uv: 3490,
+    pv: 4300,
+    amt: 2100,
+  },
+  {
+    name: "Station G",
+    uv: 3490,
+    pv: 4300,
+    amt: 2100,
+  },
+  {
+    name: "Station G",
     uv: 3490,
     pv: 4300,
     amt: 2100,
@@ -80,9 +89,25 @@ const pieChartData = [
 export default function Charts(props) {
   var theme = useTheme();
 
-  // local
   var [activeIndex, setActiveIndexId] = useState(0);
+  const [Stations, setStations] = useState([]);
+  // local
+  var stationStat = [];
 
+  const getAllStations = () => {
+    axios
+      .get(`https://bycyclethesis.herokuapp.com/station`)
+      .then((response) => {
+        setStations(response.data);
+      })
+      .catch((err) => {
+        console.log("err", err);
+      });
+  };
+
+  useEffect(() => {
+    getAllStations();
+  }, []);
   return (
     <>
       <PageTitle
@@ -110,7 +135,7 @@ export default function Charts(props) {
               <LineChart
                 width={500}
                 height={300}
-                data={lineChartData}
+                data={Stations}
                 margin={{
                   top: 5,
                   right: 30,
@@ -119,26 +144,26 @@ export default function Charts(props) {
                 }}
               >
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
+                <XAxis dataKey="Name" />
                 <YAxis />
                 <Tooltip />
                 <Legend />
                 <Line
                   type="monotone"
-                  dataKey="pv"
+                  dataKey="Name"
                   stroke={theme.palette.primary.main}
                   activeDot={{ r: 8 }}
                 />
                 <Line
                   type="monotone"
-                  dataKey="uv"
+                  dataKey="BikeCount"
                   stroke={theme.palette.secondary.main}
                 />
               </LineChart>
             </ResponsiveContainer>
           </Widget>
         </Grid>
-        <Grid item xs={12} md={4}>
+        {/* <Grid item xs={12} md={4}>
           <Widget title="Bikes Category" noBodyPadding upperTitle>
             <ResponsiveContainer width="100%" height={300}>
               <PieChart width={200} height={300}>
@@ -155,7 +180,7 @@ export default function Charts(props) {
               </PieChart>
             </ResponsiveContainer>
           </Widget>
-        </Grid>
+        </Grid> */}
       </Grid>
     </>
   );

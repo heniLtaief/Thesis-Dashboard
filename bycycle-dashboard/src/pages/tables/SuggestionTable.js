@@ -46,6 +46,7 @@ export default function SuggestionTable() {
             title="suggestion List"
             data={suggestionTable}
             columns={[
+              "Incidents",
               "ID",
               "Created at",
               "Description",

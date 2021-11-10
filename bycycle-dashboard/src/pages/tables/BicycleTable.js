@@ -46,7 +46,6 @@ export default function BicycleTable() {
             data={bicycleTable}
             columns={[
               "Incident",
-
               "Bike Id",
               "Category",
               "Purchase Date",

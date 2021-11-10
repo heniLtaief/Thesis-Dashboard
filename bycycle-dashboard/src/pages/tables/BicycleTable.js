@@ -23,7 +23,7 @@ export default function BicycleTable() {
   });
   const getAllBicycles = () => {
     axios
-      .get(`http://localhost:3002/bicycle`)
+      .get(`https://bycyclethesis.herokuapp.com/bicycle`)
       .then((response) => {
         SetBicycles(response.data);
       })
@@ -45,7 +45,6 @@ export default function BicycleTable() {
             title="Bicycle List"
             data={bicycleTable}
             columns={[
-              "To be removed",
               "Bike Id",
               "Category",
               "Purchase Date",

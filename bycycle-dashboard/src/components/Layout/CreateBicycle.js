@@ -49,9 +49,9 @@ function CreateBicycle() {
           onClick={() => {
             console.log(Bicycle);
             axios
-              .post(`https://bycyclebackend.herokuapp.com/bicycle`, Bicycle)
+              .post(`https://bycyclethesis.herokuapp.com/bicycle`, Bicycle)
               .then((result) => {
-                console.log("bike created", result.data);
+                console.log("bike created", Bicycle);
               })
               .catch((err) => {
                 console.log(err);

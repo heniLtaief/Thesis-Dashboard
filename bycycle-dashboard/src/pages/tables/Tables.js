@@ -5,6 +5,7 @@ import MUIDataTable from "mui-datatables";
 import BicycleTable from "./BicycleTable";
 import StationTable from "./StationTable";
 import SuggestionTable from "./SuggestionTable";
+import ReviewTable from "./ReviewsTable";
 
 // components
 import PageTitle from "../../components/PageTitle";
@@ -13,7 +14,6 @@ import PageTitle from "../../components/PageTitle";
 
 // data
 // import mock from "../dashboard/mock";
-import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   tableOverflow: {
@@ -28,6 +28,7 @@ export default function Tables() {
       <SuggestionTable></SuggestionTable>
       <StationTable></StationTable>
       <BicycleTable></BicycleTable>
+      <ReviewTable></ReviewTable>
     </>
   );
 }

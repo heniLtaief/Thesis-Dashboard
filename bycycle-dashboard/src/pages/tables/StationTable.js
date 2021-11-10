@@ -23,7 +23,7 @@ export default function StationTable() {
   });
   const getAllStations = () => {
     axios
-      .get(`https://bycyclebackend.herokuapp.com/station`)
+      .get(`https://bycyclethesis.herokuapp.com/station`)
       .then((response) => {
         SetStations(response.data);
       })

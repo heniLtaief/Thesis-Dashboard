@@ -46,15 +46,15 @@ export default function StationTable() {
             data={stationTable}
             columns={[
               "Number of bikes",
-              "City",
               "Email",
+              "City",
               "Income",
               "Status",
               "Name",
               "Situation",
+              "Incident",
               "StationId",
-              "CreatedA",
-              "UpdatedAt",
+              // "UpdatedAt",
             ]}
             options={{
               filterType: "checkbox",

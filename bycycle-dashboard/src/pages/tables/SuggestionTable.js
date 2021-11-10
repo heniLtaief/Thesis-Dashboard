@@ -49,7 +49,7 @@ export default function SuggestionTable() {
             columns={[
               "Incidents",
               "ID",
-              // "Created at",
+              "Created at",
               "Description",
               "Distance",
               "Duration",

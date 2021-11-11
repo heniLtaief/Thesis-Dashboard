@@ -1,15 +1,18 @@
-import React from "react";
+import * as React from "react";
 import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 import classnames from "classnames";
-import { Box, IconButton, Link } from "@material-ui/core";
+import { IconButton, Link } from "@material-ui/core";
 import Icon from "@mdi/react";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+
+import CreateStation from "./CreateStation";
+import CreateBicycle from "./CreateBicycle";
+import CreateSuggestion from "./CreateSuggestion";
 
 //icons
-import {
-  mdiFacebook as FacebookIcon,
-  mdiTwitter as TwitterIcon,
-  mdiGithub as GithubIcon,
-} from "@mdi/js";
+import { mdiGithub as GithubIcon } from "@mdi/js";
 
 // styles
 import useStyles from "./styles";
@@ -26,9 +29,14 @@ import Maps from "../../pages/maps";
 import Tables from "../../pages/tables";
 import Icons from "../../pages/icons";
 import Charts from "../../pages/charts";
+import SuggestionTable from "../../pages/tables/SuggestionTable";
+import StationTable from "../../pages/tables/StationTable";
+import ReviewTable from "../../pages/tables/ReviewsTable";
+import BicycleTable from "../../pages/tables/BicycleTable";
 
 // context
 import { useLayoutState } from "../../context/LayoutContext";
+import { Title } from "@material-ui/icons";
 
 function Layout(props) {
   var classes = useStyles();
@@ -60,7 +68,17 @@ function Layout(props) {
             <Route path="/app/ui/maps" component={Maps} />
             <Route path="/app/ui/icons" component={Icons} />
             <Route path="/app/ui/charts" component={Charts} />
+            <Route path="/app/Suggestions" component={SuggestionTable} />
+            <Route path="/app/Stations" component={StationTable} />
+            <Route path="/app/Reviews" component={ReviewTable} />
+            <Route path="/app/Bicycles" component={BicycleTable} />
+
+            {/* <Route path="/app/Stations" component={StationTable} /> */}
+
+            {/* <Route path="/app/ui/charts" component={Charts} />
+            <Route path="/app/ui/charts" component={Charts} /> */}
           </Switch>
+
           <Box
             mt={5}
             width={"100%"}

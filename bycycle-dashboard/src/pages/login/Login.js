@@ -11,6 +11,7 @@ import {
 } from "@material-ui/core";
 import { withRouter } from "react-router-dom";
 import classnames from "classnames";
+import axios from "axios";
 
 // styles
 import useStyles from "./styles";
@@ -27,19 +28,72 @@ function Login(props) {
 
   // global
   var userDispatch = useUserDispatch();
-
   // local
   var [isLoading, setIsLoading] = useState(false);
   var [error, setError] = useState(null);
   var [activeTabId, setActiveTabId] = useState(0);
+
+  // var [RegisterAdmin, setRegisterAdmin] = useState({
+  //   User: "",
+  //   Password: "",
+  //   Email: "",
+  // });
+  // function handleRegister(e) {
+  //   e.persist();
+  //   const { name, value } = e.target;
+  //   setRegisterAdmin((prevState) => ({
+  //     ...prevState,
+  //     [name]: value,
+  //   }));
+  // }
+
+  // var [LoginAdmin, setLoginAdmin] = useState({
+  //   User: "",
+  //   Password: "",
+  // });
+  // function handleLogin(e) {
+  //   e.persist();
+  //   const { name, value } = e.target;
+  //   setLoginAdmin((prevState) => ({
+  //     ...prevState,
+  //     [name]: value,
+  //   }));
+  // }
+
   var [nameValue, setNameValue] = useState("Elyes Ben khoud");
   var [loginValue, setLoginValue] = useState("elyes@gmail.com");
   var [passwordValue, setPasswordValue] = useState("elyes");
 
+  // const registerAdmin = () => {
+  //   axios
+  //     .post("http://localhost:3002/admin", {
+  //       RegisterAdmin,
+  //     })
+  //     .then((admin) => {
+  //       console.log(admin);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+
+  // const checkAdmin = () => {
+  //   axios
+  //     .post("http://localhost:3002/admin/check", {
+  //       LoginAdmin,
+  //     })
+  //     .then((adminLogged) => {
+  //       console.log(adminLogged.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+
   return (
     <Grid container className={classes.container}>
       <div className={classes.logotypeContainer}>
-        <img src={bg} alt="picture" className={classes.logotypeImage} />
+        <img src={bg} alt="bg" className={classes.logotypeImage} />
       </div>
       <div className={classes.formContainer}>
         <div className={classes.form}>
@@ -64,14 +118,16 @@ function Login(props) {
                   },
                 }}
                 value={loginValue}
-                onChange={(e) => setLoginValue(e.target.value)}
+                name="User"
+                // onChange={handleLogin}
                 margin="normal"
-                placeholder="Email Adress"
-                type="email"
+                placeholder="Username"
+                type="text"
                 fullWidth
               />
               <TextField
                 id="password"
+                name="Password"
                 InputProps={{
                   classes: {
                     underline: classes.textFieldUnderline,
@@ -79,7 +135,7 @@ function Login(props) {
                   },
                 }}
                 value={passwordValue}
-                onChange={(e) => setPasswordValue(e.target.value)}
+                // onChange={handleLogin}
                 margin="normal"
                 placeholder="Password"
                 type="password"
@@ -90,18 +146,23 @@ function Login(props) {
                   <CircularProgress size={26} className={classes.loginLoader} />
                 ) : (
                   <Button
-                    disabled={
-                      loginValue.length === 0 || passwordValue.length === 0
-                    }
-                    onClick={() =>
-                      loginUser(
-                        userDispatch,
-                        loginValue,
-                        passwordValue,
-                        props.history,
-                        setIsLoading,
-                        setError,
-                      )
+                    // disabled={
+                    //   LoginAdmin.User.length === 0 ||
+                    //   LoginAdmin.Password.length === 0
+                    // }
+                    onClick={
+                      // () => {
+                      //   checkAdmin();
+                      // }
+                      () =>
+                        loginUser(
+                          userDispatch,
+                          loginValue,
+                          passwordValue,
+                          props.history,
+                          setIsLoading,
+                          setError,
+                        )
                     }
                     variant="contained"
                     color="primary"
@@ -145,13 +206,15 @@ function Login(props) {
                   },
                 }}
                 value={nameValue}
-                onChange={(e) => setNameValue(e.target.value)}
+                name="User"
+                // onChange={handleRegister}
                 margin="normal"
                 placeholder="Full Name"
                 type="text"
                 fullWidth
               />
               <TextField
+                name="Email"
                 id="email"
                 InputProps={{
                   classes: {
@@ -160,7 +223,7 @@ function Login(props) {
                   },
                 }}
                 value={loginValue}
-                onChange={(e) => setLoginValue(e.target.value)}
+                // onChange={handleRegister}
                 margin="normal"
                 placeholder="Email Adress"
                 type="email"
@@ -168,6 +231,7 @@ function Login(props) {
               />
               <TextField
                 id="password"
+                name="Password"
                 InputProps={{
                   classes: {
                     underline: classes.textFieldUnderline,
@@ -175,7 +239,7 @@ function Login(props) {
                   },
                 }}
                 value={passwordValue}
-                onChange={(e) => setPasswordValue(e.target.value)}
+                // onChange={handleRegister}
                 margin="normal"
                 placeholder="Password"
                 type="password"
@@ -186,7 +250,9 @@ function Login(props) {
                   <CircularProgress size={26} />
                 ) : (
                   <Button
-                    onClick={() =>
+                    onClick={() => {
+                      // console.log(RegisterAdmin);
+
                       loginUser(
                         userDispatch,
                         loginValue,
@@ -194,13 +260,16 @@ function Login(props) {
                         props.history,
                         setIsLoading,
                         setError,
-                      )
-                    }
-                    disabled={
-                      loginValue.length === 0 ||
-                      passwordValue.length === 0 ||
-                      nameValue.length === 0
-                    }
+                      );
+                    }}
+                    // disabled={
+                    //   RegisterAdmin.User.length === 0 ||
+                    //   RegisterAdmin.Password.length === 0 ||
+                    //   RegisterAdmin.Email.length === 0
+                    // }
+                    // onClick={() => {
+                    //   registerAdmin();
+                    // }}
                     size="large"
                     variant="contained"
                     color="primary"

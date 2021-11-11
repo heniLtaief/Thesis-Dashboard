@@ -12,13 +12,19 @@ import useStyles from "./styles";
 const BasicMap = withScriptjs(
   withGoogleMap(() => (
     <GoogleMap
-      defaultZoom={12}
+      defaultZoom={10}
       defaultCenter={{
-        lat: parseFloat(-37.813179),
-        lng: parseFloat(144.950259),
+        lat: parseFloat(36.78825),
+        lng: parseFloat(10),
       }}
     >
-      <Marker position={{ lat: -37.813179, lng: 144.950259 }} />
+      <Marker position={{ lat: 36.78825, lng: 10 }} />
+      <Marker position={{ lat: 34.70075, lng: 9.1 }} />
+      <Marker position={{ lat: 36.78825, lng: 10.2324 }} />
+      <Marker position={{ lat: 36.77725, lng: 10.2324 }} />
+      <Marker position={{ lat: 36.64725, lng: 10.2324 }} />
+      <Marker position={{ lat: 36.86625, lng: 10.2324 }} />
+      <Marker position={{ lat: 36.06555, lng: 10.2324 }} />
     </GoogleMap>
   )),
 );

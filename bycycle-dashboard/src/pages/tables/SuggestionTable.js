@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import MUIDataTable from "mui-datatables";
+import CreateSuggestion from "../../components/Layout/CreateSuggestion";
 
 // components
 import PageTitle from "../../components/PageTitle";
@@ -39,11 +40,11 @@ export default function SuggestionTable() {
 
   return (
     <>
-      <PageTitle title="suggestions" />
+      <PageTitle title="Suggestions" />
       <Grid container spacing={4}>
         <Grid item xs={12}>
           <MUIDataTable
-            title="suggestion List"
+            title="Suggestions List"
             data={suggestionTable}
             columns={[
               "Incidents",
@@ -60,6 +61,7 @@ export default function SuggestionTable() {
             }}
           />
         </Grid>
+        <CreateSuggestion></CreateSuggestion>
       </Grid>
     </>
   );

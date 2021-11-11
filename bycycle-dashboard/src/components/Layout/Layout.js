@@ -12,11 +12,7 @@ import CreateBicycle from "./CreateBicycle";
 import CreateSuggestion from "./CreateSuggestion";
 
 //icons
-import {
-  mdiFacebook as FacebookIcon,
-  mdiTwitter as TwitterIcon,
-  mdiGithub as GithubIcon,
-} from "@mdi/js";
+import { mdiGithub as GithubIcon } from "@mdi/js";
 
 // styles
 import useStyles from "./styles";

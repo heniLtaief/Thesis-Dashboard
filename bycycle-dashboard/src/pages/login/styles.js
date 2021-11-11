@@ -27,7 +27,7 @@ export default makeStyles((theme) => ({
     },
   },
   logotypeImage: {
-    width: 730,
+    width: 930,
   },
   logotypeText: {
     color: "white",

@@ -2,14 +2,16 @@ import React, { useState, useEffect } from "react";
 import { Drawer, IconButton, List } from "@material-ui/core";
 import {
   Home as HomeIcon,
-  NotificationsNone as NotificationsIcon,
   FormatSize as TypographyIcon,
   FilterNone as UIElementsIcon,
   BorderAll as TableIcon,
+<<<<<<< HEAD
+=======
   QuestionAnswer as SupportIcon,
   LibraryBooks as LibraryIcon,
   HelpOutline as FAQIcon,
   RateReview as RateReviewIcon,
+>>>>>>> 00073a7da1c2084f3e8d211ae8d8002fe052fa82
   ArrowBack as ArrowBackIcon,
   DirectionsBike as DirectionsBikeIcon,
   EditLocation as EditLocationIcons,
@@ -25,7 +27,6 @@ import useStyles from "./styles";
 
 // components
 import SidebarLink from "./components/SidebarLink/SidebarLink";
-import Dot from "./components/Dot";
 
 // context
 import {

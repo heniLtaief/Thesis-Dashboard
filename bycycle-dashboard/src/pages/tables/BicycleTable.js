@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import MUIDataTable from "mui-datatables";
+import CreateBicycle from "../../components/Layout/CreateBicycle";
 
 // components
 import PageTitle from "../../components/PageTitle";
@@ -23,7 +24,7 @@ export default function BicycleTable() {
   });
   const getAllBicycles = () => {
     axios
-      .get(`http://localhost:3002/bicycle`)
+      .get(`https://bycyclethesis.herokuapp.com/bicycle`)
       .then((response) => {
         SetBicycles(response.data);
       })
@@ -45,7 +46,7 @@ export default function BicycleTable() {
             title="Bicycle List"
             data={bicycleTable}
             columns={[
-              "To be removed",
+              "Incident",
               "Bike Id",
               "Category",
               "Purchase Date",
@@ -57,6 +58,7 @@ export default function BicycleTable() {
             }}
           />
         </Grid>
+        <CreateBicycle></CreateBicycle>
       </Grid>
     </>
   );

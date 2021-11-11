@@ -29,6 +29,10 @@ import Maps from "../../pages/maps";
 import Tables from "../../pages/tables";
 import Icons from "../../pages/icons";
 import Charts from "../../pages/charts";
+import SuggestionTable from "../../pages/tables/SuggestionTable";
+import StationTable from "../../pages/tables/StationTable";
+import ReviewTable from "../../pages/tables/ReviewsTable";
+import BicycleTable from "../../pages/tables/BicycleTable";
 
 // context
 import { useLayoutState } from "../../context/LayoutContext";
@@ -64,10 +68,17 @@ function Layout(props) {
             <Route path="/app/ui/maps" component={Maps} />
             <Route path="/app/ui/icons" component={Icons} />
             <Route path="/app/ui/charts" component={Charts} />
+            <Route path="/app/Suggestions" component={SuggestionTable} />
+            <Route path="/app/Stations" component={StationTable} />
+            <Route path="/app/Reviews" component={ReviewTable} />
+            <Route path="/app/Bicycles" component={BicycleTable} />
+
+            {/* <Route path="/app/Stations" component={StationTable} /> */}
+
+            {/* <Route path="/app/ui/charts" component={Charts} />
+            <Route path="/app/ui/charts" component={Charts} /> */}
           </Switch>
-          <CreateStation></CreateStation>
-          <CreateBicycle></CreateBicycle>
-          <CreateSuggestion></CreateSuggestion>
+
           <Box
             mt={5}
             width={"100%"}

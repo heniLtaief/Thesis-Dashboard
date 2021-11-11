@@ -5,7 +5,18 @@ import {
   FormatSize as TypographyIcon,
   FilterNone as UIElementsIcon,
   BorderAll as TableIcon,
+<<<<<<< HEAD
+=======
+  QuestionAnswer as SupportIcon,
+  LibraryBooks as LibraryIcon,
+  HelpOutline as FAQIcon,
+  RateReview as RateReviewIcon,
+>>>>>>> 00073a7da1c2084f3e8d211ae8d8002fe052fa82
   ArrowBack as ArrowBackIcon,
+  DirectionsBike as DirectionsBikeIcon,
+  EditLocation as EditLocationIcons,
+  Create as CreateIcon,
+  ShowChart as ShowChartIcon,
 } from "@material-ui/icons";
 import { useTheme } from "@material-ui/styles";
 import { withRouter } from "react-router-dom";
@@ -32,25 +43,44 @@ const structure = [
     link: "/app/typography",
     icon: <TypographyIcon />,
   },
-  { id: 2, label: "Stations", link: "/app/tables", icon: <TableIcon /> },
-  // {
-  //   id: 3,
-  //   label: "Notifications",
-  //   link: "/app/notifications",
-  //   icon: <NotificationsIcon />,
-  // },
+
   {
-    id: 4,
-    label: "Statistics",
-    link: "/app/ui",
-    icon: <UIElementsIcon />,
+    id: 2,
+    label: "Suggestions",
+    link: "/app/Suggestions",
+    icon: <CreateIcon />,
+  },
+  {
+    id: 3,
+    label: "Stations",
+    link: "/app/Stations",
+    icon: <EditLocationIcons />,
     children: [
-      // { label: "Icons", link: "/app/ui/icons" },
-      { label: "Charts", link: "/app/ui/charts" },
-      { label: "Maps", link: "/app/ui/maps" },
+      { label: "Icons", link: "/app/ui/icons" },
+      { label: "Locations", link: "/app/ui/maps" },
+      { label: "Stations", link: "/app/Stations" },
     ],
   },
-  // { id: 5, type: "divider" },
+  {
+    id: 4,
+    label: "Reviews",
+    link: "/app/Reviews",
+    icon: <RateReviewIcon />,
+  },
+  {
+    id: 5,
+    label: "Bicycles",
+    link: "/app/Bicycles",
+    icon: <DirectionsBikeIcon />,
+  },
+  {
+    id: 6,
+    label: "Statistics",
+    link: "/app/tables",
+    icon: <ShowChartIcon />,
+    children: [{ label: "Charts", link: "/app/ui/charts" }],
+  },
+  { id: 7, type: "divider" },
   // { id: 6, type: "title", label: "HELP" },
   // {
   //   id: 7,
@@ -72,24 +102,24 @@ const structure = [
   // },
   // { id: 10, type: "divider" },
   // { id: 11, type: "title", label: "PROJECTS" },
-  // {
-  //   id: 12,
-  //   label: "My recent",
-  //   link: "",
-  //   icon: <Dot size="small" color="warning" />,
-  // },
-  // {
-  //   id: 13,
-  //   label: "Starred",
-  //   link: "",
-  //   icon: <Dot size="small" color="primary" />,
-  // },
-  // {
-  //   id: 14,
-  //   label: "Background",
-  //   link: "",
-  //   icon: <Dot size="small" color="secondary" />,
-  // },
+  {
+    id: 12,
+    label: "My recent",
+    link: "",
+    icon: <Dot size="small" color="warning" />,
+  },
+  {
+    id: 13,
+    label: "Starred",
+    link: "",
+    icon: <Dot size="small" color="primary" />,
+  },
+  {
+    id: 14,
+    label: "Background",
+    link: "",
+    icon: <Dot size="small" color="secondary" />,
+  },
 ];
 
 function Sidebar({ location }) {

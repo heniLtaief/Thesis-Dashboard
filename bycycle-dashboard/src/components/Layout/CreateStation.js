@@ -14,7 +14,7 @@ function CreateStation() {
     Incoming: "",
     City: "",
     Status: "",
-    BikeCount: 0,
+    BikeCount: "",
   });
 
   function handleChangeStation(e) {
@@ -68,7 +68,7 @@ function CreateStation() {
         onClick={() => {
           console.log(Station);
           axios
-            .post("http://localhost:3000/station", Station)
+            .post("https://bycyclethesis.herokuapp.com/station", Station)
             .then((result) => {
               console.log("station created", result.data);
             })

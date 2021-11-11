@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { Grid } from "@material-ui/core";
+import React from "react";
 import { makeStyles } from "@material-ui/styles";
-import MUIDataTable from "mui-datatables";
 import BicycleTable from "./BicycleTable";
 import StationTable from "./StationTable";
 import SuggestionTable from "./SuggestionTable";
+import ReviewTable from "./ReviewsTable";
 
 // components
 import PageTitle from "../../components/PageTitle";
@@ -13,7 +12,6 @@ import PageTitle from "../../components/PageTitle";
 
 // data
 // import mock from "../dashboard/mock";
-import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   tableOverflow: {
@@ -28,22 +26,7 @@ export default function Tables() {
       <SuggestionTable></SuggestionTable>
       <StationTable></StationTable>
       <BicycleTable></BicycleTable>
+      <ReviewTable></ReviewTable>
     </>
   );
 }
-
-/* 
-          {
-          <Grid item xs={12}>
-
-          <Widget
-            title="Incoming Stats By station"
-            upperTitle
-            noBodyPadding
-            bodyClass={classes.tableOverflow}
-          >
-            <Table data={mock.table} />
-          </Widget>
-         </Grid>
-        }
-        */

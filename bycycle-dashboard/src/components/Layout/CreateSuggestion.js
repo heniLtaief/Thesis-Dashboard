@@ -83,10 +83,7 @@ function CreateSuggestion() {
         <Button
           onClick={() => {
             axios
-              .post(
-                `https://bycyclethesis.herokuapp.com/suggestion`,
-                Suggestion,
-              )
+              .post(`http://localhost:3000/suggestion`, Suggestion)
               .then((result) => {
                 console.log("suggestion created", result.data);
               })

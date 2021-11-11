@@ -3,7 +3,7 @@ import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 import classnames from "classnames";
 import { IconButton, Link } from "@material-ui/core";
 import Icon from "@mdi/react";
-/* import Box from "@mui/material/Box"; */
+import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
@@ -72,7 +72,7 @@ function Layout(props) {
           <CreateStation></CreateStation>
           <CreateBicycle></CreateBicycle>
           <CreateSuggestion></CreateSuggestion>
-          {/*  <Box
+          <Box
             mt={5}
             width={"100%"}
             display={"flex"}
@@ -106,7 +106,7 @@ function Layout(props) {
                 </IconButton>
               </Link>
             </div>
-          </Box> */}
+          </Box>
         </div>
       </>
     </div>

@@ -84,7 +84,7 @@ function CreateSuggestion() {
           onClick={() => {
             axios
               .post(
-                `https://bycyclebackend.herokuapp.com/suggestion`,
+                `https://bycyclethesis.herokuapp.com/suggestion`,
                 Suggestion,
               )
               .then((result) => {

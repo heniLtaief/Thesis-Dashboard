@@ -14,8 +14,8 @@ function CreateBicycle() {
     description: "",
     photo: "",
   });
-  const [image, setImage] = useState(null);
-  const [respo, setRespo] = useState({});
+  const [image, setImage] = useState("");
+  const [respo, setRespo] = useState("");
 
   function handleChangeBicycle(e) {
     e.persist();
@@ -27,7 +27,6 @@ function CreateBicycle() {
   }
 
   const uploadAndGetImageUrl = () => {
-    console.log(image);
     const fd = new FormData();
     fd.append("file", image);
     axios
@@ -60,16 +59,14 @@ function CreateBicycle() {
           onClick={async () => {
             uploadAndGetImageUrl();
             Bicycle.photo = respo;
-
-            axios
+            await axios
               .post("http://localhost:3000/bicycle", Bicycle)
-              .then(() => {
-                console.log(Bicycle);
+              .then((res) => {
+                console.log(res);
               })
               .catch((err) => {
                 console.log(err);
               });
-            //   here i will send the object bicycle to the databasa
           }}
         >
           Create

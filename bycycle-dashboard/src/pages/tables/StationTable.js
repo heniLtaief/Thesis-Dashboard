@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import MUIDataTable from "mui-datatables";
-
+import CreateStation from "../../components/Layout/CreateStation";
 // components
 import PageTitle from "../../components/PageTitle";
 import axios from "axios";
@@ -49,18 +49,19 @@ export default function StationTable() {
               "City",
               "Email",
               "Income",
-              "Status",
               "Name",
+              "Status",
               "Situation",
+              "Incident",
               "StationId",
-              "CreatedA",
-              "UpdatedAt",
+              // "UpdatedAt",
             ]}
             options={{
               filterType: "checkbox",
             }}
           />
         </Grid>
+        <CreateStation></CreateStation>
       </Grid>
     </>
   );

@@ -4,12 +4,12 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useState } from "react";
 
-import { DropzoneDialog } from "material-ui-dropzone";
-import { DropzoneArea } from "material-ui-dropzone";
+// import { DropzoneDialog } from "material-ui-dropzone";
+// import { DropzoneArea } from "material-ui-dropzone";
 
 import axios from "axios";
 function CreateSuggestion() {
-  const [open, setOpen] = React.useState(false);
+  // const [open, setOpen] = React.useState(false);
   const [Suggestion, SetSuggestion] = useState({
     photo: "",
     location: "",

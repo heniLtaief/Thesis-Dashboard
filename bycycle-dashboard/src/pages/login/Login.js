@@ -12,6 +12,8 @@ import {
 import { withRouter } from "react-router-dom";
 import classnames from "classnames";
 import axios from "axios";
+// testing auth with redux
+import { connect } from "react-redux";
 
 // styles
 import useStyles from "./styles";
@@ -22,12 +24,11 @@ import bg from "../../images/Onboarding.png";
 
 // context
 import { useUserDispatch, loginUser } from "../../context/UserContext";
-
 function Login(props) {
   var classes = useStyles();
 
   // global
-  var userDispatch = useUserDispatch();
+  // var userDispatch = useUserDispatch();
   // local
   var [isLoading, setIsLoading] = useState(false);
   var [error, setError] = useState(null);
@@ -85,6 +86,9 @@ function Login(props) {
       .then((adminLogged) => {
         console.log("ADMIN IN", adminLogged);
         setAdminLog(true);
+      })
+      .then(() => {
+        console.log(props);
       })
       .catch((err) => {
         console.log(err);

@@ -62,7 +62,7 @@ function CreateBicycle() {
             await axios
               .post("http://localhost:3000/bicycle", Bicycle)
               .then((res) => {
-                console.log(res);
+                console.log(res.data);
               })
               .catch((err) => {
                 console.log(err);

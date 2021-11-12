@@ -1,9 +1,5 @@
 import React from "react";
-<<<<<<< HEAD
-
-=======
 import { Grid } from "@material-ui/core";
->>>>>>> 00073a7da1c2084f3e8d211ae8d8002fe052fa82
 // styles
 import useStyles from "./styles";
 // components

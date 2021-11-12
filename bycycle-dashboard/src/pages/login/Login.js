@@ -32,63 +32,64 @@ function Login(props) {
   var [isLoading, setIsLoading] = useState(false);
   var [error, setError] = useState(null);
   var [activeTabId, setActiveTabId] = useState(0);
+  var [adminLoggedIn, setAdminLog] = useState(false);
+  var [RegisterAdmin, setRegisterAdmin] = useState({
+    User: "",
+    Password: "",
+    Email: "",
+  });
+  function handleRegister(e) {
+    e.persist();
+    const { name, value } = e.target;
+    setRegisterAdmin((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  }
 
-  // var [RegisterAdmin, setRegisterAdmin] = useState({
-  //   User: "",
-  //   Password: "",
-  //   Email: "",
-  // });
-  // function handleRegister(e) {
-  //   e.persist();
-  //   const { name, value } = e.target;
-  //   setRegisterAdmin((prevState) => ({
-  //     ...prevState,
-  //     [name]: value,
-  //   }));
-  // }
+  var [LoginAdmin, setLoginAdmin] = useState({
+    Username: "",
+    LoginPassword: "",
+  });
+  function handleLogin(e) {
+    e.persist();
+    const { name, value } = e.target;
+    setLoginAdmin((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  }
 
-  // var [LoginAdmin, setLoginAdmin] = useState({
-  //   User: "",
-  //   Password: "",
-  // });
-  // function handleLogin(e) {
-  //   e.persist();
-  //   const { name, value } = e.target;
-  //   setLoginAdmin((prevState) => ({
-  //     ...prevState,
-  //     [name]: value,
-  //   }));
-  // }
+  // var [nameValue, setNameValue] = useState("Elyes Ben khoud");
+  // var [loginValue, setLoginValue] = useState("elyes@gmail.com");
+  // var [passwordValue, setPasswordValue] = useState("elyes");
 
-  var [nameValue, setNameValue] = useState("Elyes Ben khoud");
-  var [loginValue, setLoginValue] = useState("elyes@gmail.com");
-  var [passwordValue, setPasswordValue] = useState("elyes");
+  const registerAdmin = () => {
+    axios
+      .post("http://localhost:3002/admin", {
+        RegisterAdmin,
+      })
+      .then((admin) => {
+        console.log(admin);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-  // const registerAdmin = () => {
-  //   axios
-  //     .post("http://localhost:3002/admin", {
-  //       RegisterAdmin,
-  //     })
-  //     .then((admin) => {
-  //       console.log(admin);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
-
-  // const checkAdmin = () => {
-  //   axios
-  //     .post("http://localhost:3002/admin/check", {
-  //       LoginAdmin,
-  //     })
-  //     .then((adminLogged) => {
-  //       console.log(adminLogged.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
+  const checkAdmin = () => {
+    axios
+      .post("http://localhost:3002/admin/check", {
+        LoginAdmin,
+      })
+      .then((adminLogged) => {
+        console.log("ADMIN IN", adminLogged);
+        setAdminLog(true);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <Grid container className={classes.container}>
@@ -117,9 +118,9 @@ function Login(props) {
                     input: classes.textField,
                   },
                 }}
-                value={loginValue}
-                name="User"
-                // onChange={handleLogin}
+                // value={loginValue}
+                name="Username"
+                onChange={handleLogin}
                 margin="normal"
                 placeholder="Username"
                 type="text"
@@ -127,15 +128,15 @@ function Login(props) {
               />
               <TextField
                 id="password"
-                name="Password"
+                name="LoginPassword"
                 InputProps={{
                   classes: {
                     underline: classes.textFieldUnderline,
                     input: classes.textField,
                   },
                 }}
-                value={passwordValue}
-                // onChange={handleLogin}
+                // value={passwordValue}
+                onChange={handleLogin}
                 margin="normal"
                 placeholder="Password"
                 type="password"
@@ -151,18 +152,18 @@ function Login(props) {
                     //   LoginAdmin.Password.length === 0
                     // }
                     onClick={
-                      // () => {
-                      //   checkAdmin();
-                      // }
-                      () =>
-                        loginUser(
-                          userDispatch,
-                          loginValue,
-                          passwordValue,
-                          props.history,
-                          setIsLoading,
-                          setError,
-                        )
+                      () => {
+                        checkAdmin();
+                      }
+                      //   // () =>
+                      //   //   loginUser(
+                      //   //     userDispatch,
+                      //   //     loginValue,
+                      //   //     passwordValue,
+                      //   //     props.history,
+                      //   //     setIsLoading,
+                      //   //     setError,
+                      //   //   )
                     }
                     variant="contained"
                     color="primary"
@@ -205,9 +206,9 @@ function Login(props) {
                     input: classes.textField,
                   },
                 }}
-                value={nameValue}
+                // value={nameValue}
                 name="User"
-                // onChange={handleRegister}
+                onChange={handleRegister}
                 margin="normal"
                 placeholder="Full Name"
                 type="text"
@@ -222,8 +223,8 @@ function Login(props) {
                     input: classes.textField,
                   },
                 }}
-                value={loginValue}
-                // onChange={handleRegister}
+                // value={loginValue}
+                onChange={handleRegister}
                 margin="normal"
                 placeholder="Email Adress"
                 type="email"
@@ -238,8 +239,8 @@ function Login(props) {
                     input: classes.textField,
                   },
                 }}
-                value={passwordValue}
-                // onChange={handleRegister}
+                // value={passwordValue}
+                onChange={handleRegister}
                 margin="normal"
                 placeholder="Password"
                 type="password"
@@ -251,25 +252,25 @@ function Login(props) {
                 ) : (
                   <Button
                     onClick={() => {
-                      // console.log(RegisterAdmin);
+                      console.log(RegisterAdmin);
 
-                      loginUser(
-                        userDispatch,
-                        loginValue,
-                        passwordValue,
-                        props.history,
-                        setIsLoading,
-                        setError,
-                      );
+                      // loginUser(
+                      //   userDispatch,
+                      //   loginValue,
+                      //   passwordValue,
+                      //   props.history,
+                      //   setIsLoading,
+                      //   setError,
+                      // );
                     }}
                     // disabled={
                     //   RegisterAdmin.User.length === 0 ||
                     //   RegisterAdmin.Password.length === 0 ||
                     //   RegisterAdmin.Email.length === 0
                     // }
-                    // onClick={() => {
-                    //   registerAdmin();
-                    // }}
+                    onClick={() => {
+                      registerAdmin();
+                    }}
                     size="large"
                     variant="contained"
                     color="primary"

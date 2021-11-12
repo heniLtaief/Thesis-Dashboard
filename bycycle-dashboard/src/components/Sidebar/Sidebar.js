@@ -5,13 +5,10 @@ import {
   FormatSize as TypographyIcon,
   FilterNone as UIElementsIcon,
   BorderAll as TableIcon,
-<<<<<<< HEAD
-=======
   QuestionAnswer as SupportIcon,
   LibraryBooks as LibraryIcon,
   HelpOutline as FAQIcon,
   RateReview as RateReviewIcon,
->>>>>>> 00073a7da1c2084f3e8d211ae8d8002fe052fa82
   ArrowBack as ArrowBackIcon,
   DirectionsBike as DirectionsBikeIcon,
   EditLocation as EditLocationIcons,
@@ -102,24 +99,6 @@ const structure = [
   // },
   // { id: 10, type: "divider" },
   // { id: 11, type: "title", label: "PROJECTS" },
-  {
-    id: 12,
-    label: "My recent",
-    link: "",
-    icon: <Dot size="small" color="warning" />,
-  },
-  {
-    id: 13,
-    label: "Starred",
-    link: "",
-    icon: <Dot size="small" color="primary" />,
-  },
-  {
-    id: 14,
-    label: "Background",
-    link: "",
-    icon: <Dot size="small" color="secondary" />,
-  },
 ];
 
 function Sidebar({ location }) {

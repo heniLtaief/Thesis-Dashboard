@@ -1,9 +1,9 @@
 import tinycolor from "tinycolor2";
 
 const primary = "#FFBF00";
-const secondary = "#FFBF00";
-const warning = "#FFBF00";
-const success = "#FFBF00";
+const secondary = "#B9B9B9";
+const warning = "#FF003A";
+const success = "#00B066";
 const info = "#FFBF00";
 
 const lightenRate = 7.5;

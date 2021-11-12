@@ -64,12 +64,15 @@ function CreateBicycle() {
               .then((res) => {
                 console.log(res);
               })
+              .then(() => {
+                window.location.reload();
+              })
               .catch((err) => {
                 console.log(err);
               });
           }}
         >
-          Create
+          Click Here to Create
         </Button>
       </div>
     </Box>

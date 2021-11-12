@@ -42,6 +42,7 @@ export default function SuggestionTable() {
     <>
       <PageTitle title="Suggestions" />
       <Grid container spacing={4}>
+          <CreateSuggestion></CreateSuggestion>
         <Grid item xs={12}>
           <MUIDataTable
             title="Suggestions List"
@@ -61,7 +62,6 @@ export default function SuggestionTable() {
             }}
           />
         </Grid>
-        <CreateSuggestion></CreateSuggestion>
       </Grid>
     </>
   );

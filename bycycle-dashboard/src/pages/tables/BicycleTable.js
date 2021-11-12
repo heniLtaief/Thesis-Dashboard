@@ -40,7 +40,8 @@ export default function BicycleTable() {
   return (
     <>
       <PageTitle title="Bicycles" />
-      <Grid container spacing={4}>
+      <Grid container spacing={2}>
+        <CreateBicycle></CreateBicycle>
         <Grid item xs={12}>
           <MUIDataTable
             title="Bicycle List"
@@ -58,7 +59,6 @@ export default function BicycleTable() {
             }}
           />
         </Grid>
-        <CreateBicycle></CreateBicycle>
       </Grid>
     </>
   );

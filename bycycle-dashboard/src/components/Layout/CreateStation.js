@@ -25,6 +25,7 @@ function CreateStation() {
       [name]: value,
     }));
   }
+
   return (
     <Box>
       <h3> Create Station</h3>
@@ -71,6 +72,9 @@ function CreateStation() {
             .post("https://bycyclethesis.herokuapp.com/station", Station)
             .then((result) => {
               console.log("station created", result.data);
+            })
+            .then(() => {
+              window.location.reload();
             })
             .catch((err) => {
               console.log(err);

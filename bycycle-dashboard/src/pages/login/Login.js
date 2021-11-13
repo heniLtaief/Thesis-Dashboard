@@ -9,6 +9,8 @@ import {
   TextField,
   Fade,
 } from "@material-ui/core";
+import { Link } from "react-router-dom";
+
 import { withRouter } from "react-router-dom";
 import classnames from "classnames";
 import axios from "axios";
@@ -28,14 +30,15 @@ import CreateBicycle from "../../components/Layout/CreateBicycle";
 
 function Login(props) {
   var classes = useStyles();
-
   // global
   // var userDispatch = useUserDispatch();
   // local
   var [isLoading, setIsLoading] = useState(false);
   var [error, setError] = useState(null);
   var [activeTabId, setActiveTabId] = useState(0);
+
   var [adminLoggedIn, setAdminLog] = useState(false);
+
   var [RegisterAdmin, setRegisterAdmin] = useState({
     User: "",
     Password: "",
@@ -91,11 +94,9 @@ function Login(props) {
         LoginAdmin,
       })
       .then((adminLogged) => {
-        console.log("ADMIN IN", adminLogged);
+        console.log("ADMIN IN", adminLogged.data.Username.length);
         setAdminLog(true);
-      })
-      .then(() => {
-        console.log("logged in");
+        localStorage.setItem("auth", adminLogged.data.Username);
       })
       .catch((err) => {
         console.log(err);

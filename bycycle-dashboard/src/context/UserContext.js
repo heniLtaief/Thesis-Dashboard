@@ -14,7 +14,6 @@ function userReducer(state, action) {
     }
   }
 }
-
 function UserProvider({ children }) {
   var [state, dispatch] = React.useReducer(userReducer, {
     isAuthenticated: !!localStorage.getItem("id_token"),
@@ -52,7 +51,7 @@ export { UserProvider, useUserState, useUserDispatch, loginUser, signOut };
 function loginUser(dispatch, login, password, history, setIsLoading, setError) {
   setError(false);
   setIsLoading(true);
-
+// checking if getting the correct user
   if (!!login && !!password) {
     setTimeout(() => {
       localStorage.setItem('id_token', 1)

@@ -13,7 +13,6 @@ import { withRouter } from "react-router-dom";
 import classnames from "classnames";
 import axios from "axios";
 // testing auth with redux
-import { connect } from "react-redux";
 // import { login } from "../actions/auth";
 import MuiAlert from "@material-ui/lab/Alert";
 // styles
@@ -67,6 +66,11 @@ function Login(props) {
   // var [nameValue, setNameValue] = useState("Elyes Ben khoud");
   // var [loginValue, setLoginValue] = useState("elyes@gmail.com");
   // var [passwordValue, setPasswordValue] = useState("elyes");
+  // var [nameValue, setNameValue] = useState("Elyes Ben khoud");
+  // var [loginValue, setLoginValue] = useState("Elyesbenkhoud377@gmail.com");
+  // var [passwordValue, setPasswordValue] = useState(
+  //   "ElyesbenkhoudRBKtn-cohort16",
+  // );
 
   const registerAdmin = () => {
     axios
@@ -108,8 +112,8 @@ function Login(props) {
           <Tabs
             value={activeTabId}
             onChange={(e, id) => setActiveTabId(id)}
-            indicatorColor="primary"
-            textColor="primary"
+            // indicatorColor="primary"
+            textColor="#FFBF00"
             centered
           >
             <Tab label="Login" classes={{ root: classes.tab }} />
@@ -173,14 +177,14 @@ function Login(props) {
                       //   //   )
                     }
                     variant="contained"
-                    color="primary"
+                    color="#FFBF00"
                     size="large"
                   >
                     Login
                   </Button>
                 )}
                 <Button
-                  color="primary"
+                  color="FFBF00"
                   size="large"
                   className={classes.forgetButton}
                 >
@@ -280,7 +284,7 @@ function Login(props) {
                     }}
                     size="large"
                     variant="contained"
-                    color="primary"
+                    color="#FFBF00"
                     fullWidth
                     className={classes.createAccountButton}
                   >

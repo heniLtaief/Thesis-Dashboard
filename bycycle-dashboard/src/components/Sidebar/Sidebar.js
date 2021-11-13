@@ -99,6 +99,27 @@ const structure = [
   // },
   // { id: 10, type: "divider" },
   // { id: 11, type: "title", label: "PROJECTS" },
+<<<<<<< HEAD
+=======
+  // {
+  //   id: 12,
+  //   label: "My recent",
+  //   link: "",
+  //   icon: <Dot size="small" color="warning" />,
+  // },
+  // {
+  //   id: 13,
+  //   label: "Starred",
+  //   link: "",
+  //   icon: <Dot size="small" color="primary" />,
+  // },
+  // {
+  //   id: 14,
+  //   label: "Background",
+  //   link: "",
+  //   icon: <Dot size="small" color="secondary" />,
+  // },
+>>>>>>> 84c81503c652589824f61864ce103e4217a48f03
 ];
 
 function Sidebar({ location }) {

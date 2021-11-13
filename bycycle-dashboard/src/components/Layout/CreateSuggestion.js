@@ -87,6 +87,9 @@ function CreateSuggestion() {
               .then((result) => {
                 console.log("suggestion created", result.data);
               })
+              .then(() => {
+                window.location.reload();
+              })
               .catch((err) => {
                 console.log(err);
               });

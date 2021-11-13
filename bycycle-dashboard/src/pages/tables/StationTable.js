@@ -36,10 +36,12 @@ export default function StationTable() {
     getAllStations();
   }, []);
 
+
   return (
     <>
       <PageTitle title="Stations" />
       <Grid container spacing={4}>
+        <CreateStation></CreateStation>
         <Grid item xs={12}>
           <MUIDataTable
             title="Station List"
@@ -61,7 +63,6 @@ export default function StationTable() {
             }}
           />
         </Grid>
-        <CreateStation></CreateStation>
       </Grid>
     </>
   );

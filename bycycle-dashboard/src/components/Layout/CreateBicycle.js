@@ -4,8 +4,9 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useState } from "react";
-import { DropzoneDialog } from "material-ui-dropzone";
+// import { DropzoneDialog } from "material-ui-dropzone";
 import axios from "axios";
+// import { Input } from "@material-ui/core";
 function CreateBicycle() {
   const [open, setOpen] = React.useState(false);
   const [Bicycle, SetBicycle] = useState({
@@ -13,6 +14,8 @@ function CreateBicycle() {
     description: "",
     photo: "",
   });
+  const [image, setImage] = useState("");
+  const [respo, setRespo] = useState("");
 
   function handleChangeBicycle(e) {
     e.persist();
@@ -23,15 +26,22 @@ function CreateBicycle() {
     }));
   }
 
+  const uploadAndGetImageUrl = () => {
+    const fd = new FormData();
+    fd.append("file", image);
+    axios
+      .post("http://localhost:3000/bicycle/upload", fd)
+      .then((res) => setRespo(res.data.url));
+  };
   return (
     <Box>
       <h3> Create bicycle</h3>
       <div>
-        <TextField
-          onChange={handleChangeBicycle}
+        <input
           name="photo"
           placeholder="Photo"
           type="file"
+          onChange={(e) => setImage(e.target.files[0])}
         />
         <TextField
           onChange={handleChangeBicycle}
@@ -46,20 +56,23 @@ function CreateBicycle() {
         ></TextField>
 
         <Button
-          onClick={() => {
-            console.log(Bicycle);
-            axios
-              .post(`https://bycyclethesis.herokuapp.com/bicycle`, Bicycle)
-              .then((result) => {
-                console.log("bike created", Bicycle);
+          onClick={async () => {
+            uploadAndGetImageUrl();
+            Bicycle.photo = respo;
+            await axios
+              .post("http://localhost:3000/bicycle", Bicycle)
+              .then((res) => {
+                console.log(res.data);
+              })
+              .then(() => {
+                window.location.reload();
               })
               .catch((err) => {
                 console.log(err);
               });
-            //   here i will send the object bicycle to the databasa
           }}
         >
-          Create
+          Click Here to Create
         </Button>
       </div>
     </Box>

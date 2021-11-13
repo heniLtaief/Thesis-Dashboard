@@ -1,22 +1,19 @@
 import * as React from "react";
-import { Route, Switch, Redirect, withRouter } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+  withRouter,
+} from "react-router-dom";
+
 import classnames from "classnames";
 import { IconButton, Link } from "@material-ui/core";
 import Icon from "@mdi/react";
 import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-
-import CreateStation from "./CreateStation";
-import CreateBicycle from "./CreateBicycle";
-import CreateSuggestion from "./CreateSuggestion";
 
 //icons
-import {
-  mdiFacebook as FacebookIcon,
-  mdiTwitter as TwitterIcon,
-  mdiGithub as GithubIcon,
-} from "@mdi/js";
+import { mdiGithub as GithubIcon } from "@mdi/js";
 
 // styles
 import useStyles from "./styles";
@@ -40,7 +37,6 @@ import BicycleTable from "../../pages/tables/BicycleTable";
 
 // context
 import { useLayoutState } from "../../context/LayoutContext";
-import { Title } from "@material-ui/icons";
 
 function Layout(props) {
   var classes = useStyles();
@@ -51,7 +47,7 @@ function Layout(props) {
   return (
     <div className={classes.root}>
       <>
-        <Header history={props.history} />
+        <Header />
         <Sidebar />
         <div
           className={classnames(classes.content, {
@@ -59,29 +55,32 @@ function Layout(props) {
           })}
         >
           <div className={classes.fakeToolbar} />
-          <Switch>
-            <Route path="/app/dashboard" component={Dashboard} />
-            <Route path="/app/typography" component={Typography} />
-            <Route path="/app/tables" component={Tables} />
-            <Route path="/app/notifications" component={Notifications} />
-            <Route
-              exact
-              path="/app/ui"
-              render={() => <Redirect to="/app/ui/icons" />}
-            />
-            <Route path="/app/ui/maps" component={Maps} />
-            <Route path="/app/ui/icons" component={Icons} />
-            <Route path="/app/ui/charts" component={Charts} />
-            <Route path="/app/Suggestions" component={SuggestionTable} />
-            <Route path="/app/Stations" component={StationTable} />
-            <Route path="/app/Reviews" component={ReviewTable} />
-            <Route path="/app/Bicycles" component={BicycleTable} />
+          <Router>
+            <Switch>
+              <Route path="/app/dashboard" component={Dashboard} />
+              <Route path="/app/typography" component={Typography} />
+              <Route path="/app/tables" component={Tables} />
+              <Route path="/app/notifications" component={Notifications} />
+              <Route
+                exact
+                path="/app/ui"
+                render={() => <Redirect to="/app/ui/icons" />}
+              />
+              <Route path="/app/ui/maps" component={Maps} />
+              <Route path="/app/ui/icons" component={Icons} />
+              <Route path="/app/ui/charts" component={Charts} />
+              <Route path="/app/Suggestions" component={SuggestionTable} />
+              <Route path="/app/Stations" component={StationTable} />
+              <Route path="/app/Reviews" component={ReviewTable} />
+              <Route path="/app/Bicycles" component={BicycleTable} />
+              {/* <Route path="/app/Users" component={Users} /> */}
 
-            {/* <Route path="/app/Stations" component={StationTable} /> */}
+              {/* <Route path="/app/Stations" component={StationTable} /> */}
 
-            {/* <Route path="/app/ui/charts" component={Charts} />
+              {/* <Route path="/app/ui/charts" component={Charts} />
             <Route path="/app/ui/charts" component={Charts} /> */}
-          </Switch>
+            </Switch>
+          </Router>
 
           <Box
             mt={5}

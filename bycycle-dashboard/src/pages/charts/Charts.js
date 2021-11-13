@@ -108,13 +108,23 @@ export default function Charts(props) {
   useEffect(() => {
     getAllStations();
   }, []);
+
+  const Reload = () => {
+    window.location.reload();
+  };
+
   return (
     <>
       <PageTitle
         title="Charts Page - Data Display"
         button={
-          <Button variant="contained" size="medium" color="secondary">
-            Enzel 3al Bouton
+          <Button
+            variant="contained"
+            size="medium"
+            color="secondary"
+            onClick={Reload}
+          >
+            Refresh Statistics
           </Button>
         }
       />

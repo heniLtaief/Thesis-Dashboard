@@ -23,7 +23,7 @@ import classNames from "classnames";
 import useStyles from "./styles";
 
 // components
-import { Badge, Typography, Button } from "../Wrappers";
+import { Badge, Typography } from "../Wrappers";
 import Notification from "../Notification/Notification";
 import UserAvatar from "../UserAvatar/UserAvatar";
 
@@ -106,7 +106,7 @@ export default function Header(props) {
 
   return (
     <AppBar position="fixed" className={classes.appBar}>
-      <Toolbar  className={classes.toolbar}>
+      <Toolbar className={classes.toolbar}>
         <IconButton
           color="inherit"
           onClick={() => toggleSidebar(layoutDispatch)}
@@ -327,7 +327,7 @@ export default function Header(props) {
             <Typography
               className={classes.profileMenuLink}
               color="primary"
-              onClick={() => signOut(userDispatch, props.history)}
+              onClick={localStorage.removeItem("auth")}
             >
               Sign Out
             </Typography>

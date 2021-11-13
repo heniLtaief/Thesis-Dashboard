@@ -48,14 +48,21 @@ export default function Dashboard(props) {
 
   // local
   var [mainChartState, setMainChartState] = useState("monthly");
-
+  const Reload = () => {
+    window.location.reload();
+  };
   return (
     <>
       <PageTitle
-        title="Admin"
+        title="Overview"
         button={
-          <Button variant="contained" size="medium" color="secondary">
-            Enzel 3al bouton
+          <Button
+            variant="contained"
+            size="medium"
+            color="secondary"
+            onClick={Reload}
+          >
+            refresh Statistics
           </Button>
         }
       />

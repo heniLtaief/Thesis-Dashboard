@@ -16,7 +16,7 @@ import {
   ShowChart as ShowChartIcon,
 } from "@material-ui/icons";
 import { useTheme } from "@material-ui/styles";
-import { withRouter } from "react-router-dom";
+import { withRouter, useHistory } from "react-router-dom";
 import classNames from "classnames";
 
 // styles
@@ -101,7 +101,7 @@ const structure = [
   // { id: 11, type: "title", label: "PROJECTS" },
 ];
 
-function Sidebar({ location }) {
+function Sidebar({ location, history }) {
   var classes = useStyles();
   var theme = useTheme();
 
@@ -119,6 +119,16 @@ function Sidebar({ location }) {
       window.removeEventListener("resize", handleWindowWidthChange);
     };
   });
+
+  const R = () => {
+    console.log("ihm here");
+    window.location.reload();
+    console.log("hello");
+  };
+
+  const H = () => {
+    let history = useHistory();
+  };
 
   return (
     <Drawer
@@ -148,6 +158,7 @@ function Sidebar({ location }) {
       <List className={classes.sidebarList}>
         {structure.map((link) => (
           <SidebarLink
+            onSubmit={() => R()}
             key={link.id}
             location={location}
             isSidebarOpened={isSidebarOpened}

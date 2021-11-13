@@ -8,6 +8,7 @@ import App from "./components/App";
 import * as serviceWorker from "./serviceWorker";
 import { LayoutProvider } from "./context/LayoutContext";
 import { UserProvider } from "./context/UserContext";
+import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
   <LayoutProvider>
@@ -20,6 +21,5 @@ ReactDOM.render(
   </LayoutProvider>,
   document.getElementById("root"),
 );
-
 
 serviceWorker.unregister();

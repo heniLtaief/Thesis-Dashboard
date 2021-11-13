@@ -99,24 +99,6 @@ const structure = [
   // },
   // { id: 10, type: "divider" },
   // { id: 11, type: "title", label: "PROJECTS" },
-  // {
-  //   id: 12,
-  //   label: "My recent",
-  //   link: "",
-  //   icon: <Dot size="small" color="warning" />,
-  // },
-  // {
-  //   id: 13,
-  //   label: "Starred",
-  //   link: "",
-  //   icon: <Dot size="small" color="primary" />,
-  // },
-  // {
-  //   id: 14,
-  //   label: "Background",
-  //   link: "",
-  //   icon: <Dot size="small" color="secondary" />,
-  // },
 ];
 
 function Sidebar({ location }) {

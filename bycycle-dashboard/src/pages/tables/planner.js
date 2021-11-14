@@ -5,10 +5,15 @@ import {
   Scheduler,
   WeekView,
   Appointments,
+  MonthView,
+  Toolbar,
+  DateNavigator,
+  TodayButton,
 } from "@devexpress/dx-react-scheduler-material-ui";
 import { makeStyles } from "@material-ui/core/styles";
 import { fade } from "@material-ui/core/styles/colorManipulator";
-import appointments from "./demo-data/today-appointments";
+import appointments from "./appointment-data/today-appointments";
+import monthlyAppointment from "./appointment-data/month-appointments";
 
 const useStyles = makeStyles((theme) => ({
   todayCell: {
@@ -71,11 +76,15 @@ export default () => (
     <Scheduler data={appointments} height={660}>
       <ViewState />
       <WeekView
-        startDayHour={9}
+        startDayHour={8}
         endDayHour={19}
         timeTableCellComponent={TimeTableCell}
         dayScaleCellComponent={DayScaleCell}
       />
+      <MonthView />
+      <Toolbar />
+      <DateNavigator />
+
       <Appointments />
     </Scheduler>
   </Paper>

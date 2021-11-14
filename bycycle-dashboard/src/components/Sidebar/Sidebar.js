@@ -77,7 +77,17 @@ const structure = [
     icon: <ShowChartIcon />,
     children: [{ label: "Charts", link: "/app/ui/charts" }],
   },
-  { id: 7, type: "divider" },
+  {
+    id: 7,
+    label: "Planner",
+    link: "/app/planner",
+    icon: <ShowChartIcon />,
+    children: [
+      { label: "Todo", link: "/app/ui/todo" },
+      { label: "events", link: "/app/ui/events" },
+    ],
+  },
+  { id: 8, type: "divider" },
   // { id: 6, type: "title", label: "HELP" },
   // {
   //   id: 7,

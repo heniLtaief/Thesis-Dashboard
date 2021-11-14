@@ -34,6 +34,9 @@ import SuggestionTable from "../../pages/tables/SuggestionTable";
 import StationTable from "../../pages/tables/StationTable";
 import ReviewTable from "../../pages/tables/ReviewsTable";
 import BicycleTable from "../../pages/tables/BicycleTable";
+import planner from "../../pages/tables/planner";
+
+import TodoComponent from "../../pages/tables/todo";
 
 // context
 import { useLayoutState } from "../../context/LayoutContext";
@@ -72,10 +75,11 @@ function Layout(props) {
             <Route path="/app/Stations" component={StationTable} />
             <Route path="/app/Reviews" component={ReviewTable} />
             <Route path="/app/Bicycles" component={BicycleTable} />
-            {/* <Route path="/app/Users" component={Users} /> */}
+            <Route path="/app/todo" component={TodoComponent} />
+            <Route path="/app/ui/events" component={planner} />
 
             {/* <Route path="/app/Stations" component={StationTable} /> */}
-
+            {/* TodoComponent */}
             {/* <Route path="/app/ui/charts" component={Charts} />
             <Route path="/app/ui/charts" component={Charts} /> */}
           </Switch>

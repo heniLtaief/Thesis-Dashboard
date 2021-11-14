@@ -28,7 +28,7 @@ import bg from "../../images/Onboarding.png";
 import { useUserDispatch, loginUser } from "../../context/UserContext";
 import CreateBicycle from "../../components/Layout/CreateBicycle";
 
-function Login(props) {
+function Login({ history }) {
   var classes = useStyles();
   // global
   // var userDispatch = useUserDispatch();
@@ -166,6 +166,9 @@ function Login(props) {
                     onClick={
                       () => {
                         checkAdmin();
+                        if (adminLoggedIn) {
+                          history.push("/app/dashboard");
+                        }
                       }
                       //   // () =>
                       //   //   loginUser(

@@ -34,6 +34,7 @@ import {
   toggleSidebar,
 } from "../../context/LayoutContext";
 import { useUserDispatch, signOut } from "../../context/UserContext";
+import { Button } from "reactstrap";
 
 const messages = [
   {
@@ -325,9 +326,11 @@ export default function Header(props) {
           </MenuItem>
           <div className={classes.profileMenuUser}>
             <Typography
+              // onClick={
+              //   (console.log("clicked"), localStorage.removeItem("auth"))
+              // }
               className={classes.profileMenuLink}
               color="primary"
-              onClick={localStorage.removeItem("auth")}
             >
               Sign Out
             </Typography>

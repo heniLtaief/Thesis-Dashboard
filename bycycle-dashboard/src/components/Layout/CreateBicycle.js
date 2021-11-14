@@ -60,7 +60,7 @@ function CreateBicycle() {
             uploadAndGetImageUrl();
             Bicycle.photo = respo;
             await axios
-              .post("http://localhost:3000/bicycle", Bicycle)
+              .post("https://bycyclethesis.herokuapp.com/bicycle", Bicycle)
               .then((res) => {
                 console.log(res.data);
               })

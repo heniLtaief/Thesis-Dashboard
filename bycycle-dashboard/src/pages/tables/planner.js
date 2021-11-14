@@ -9,6 +9,8 @@ import {
   Toolbar,
   DateNavigator,
   TodayButton,
+  AppointmentTooltip,
+  AppointmentForm,
 } from "@devexpress/dx-react-scheduler-material-ui";
 import { makeStyles } from "@material-ui/core/styles";
 import { fade } from "@material-ui/core/styles/colorManipulator";
@@ -84,8 +86,10 @@ export default () => (
       <MonthView />
       <Toolbar />
       <DateNavigator />
-
+      <TodayButton />
       <Appointments />
+      <AppointmentTooltip showCloseButton showOpenButton />
+      <AppointmentForm />
     </Scheduler>
   </Paper>
 );

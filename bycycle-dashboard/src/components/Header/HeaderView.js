@@ -78,7 +78,7 @@ const notifications = [
   },
 ];
 
-const Header = ({ classes, isSidebarOpened, toggleSidebar, ...props }) => (
+const Header = ({ classes, isSidebarOpened, toggleSidebar, ...props ,history}) => (
   <AppBar position="fixed">
     <Toolbar className={classes.toolbar}>
       <IconButton
@@ -288,7 +288,10 @@ const Header = ({ classes, isSidebarOpened, toggleSidebar, ...props }) => (
           <Typography
             className={classes.profileMenuLink}
             color="primary"
-            onClick={props.signOut}
+            onClick={() => {
+              console.log('hey');
+              history.push("/login");
+            }}
           >
             Sign Out
           </Typography>

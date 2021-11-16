@@ -4,9 +4,8 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useState } from "react";
-// import { DropzoneDialog } from "material-ui-dropzone";
 import axios from "axios";
-// import { Input } from "@material-ui/core";
+
 function EventCreator() {
   const [Event, SetEvent] = useState({
     title: "",
@@ -34,13 +33,7 @@ function EventCreator() {
           placeholder="title"
           type="text"
         ></TextField>
-        {/* {
-    title: "Install New Router in Dev Room",
-    startDate: new Date(2021, 5, 25, 14, 30),
-    endDate: new Date(2021, 5, 25, 15, 35),
-    id: 2,
-    location: "Room 2",
-  }, */}
+
         <TextField
           onChange={handleChangeEvent}
           name="startDate"
@@ -61,9 +54,9 @@ function EventCreator() {
         ></TextField>
 
         <Button
-          onClick={async () => {
-            await axios
-              .post("https://bycyclethesis.herokuapp.com/Event", Event)
+          onClick={() => {
+            axios
+              .post("http://localhost:3002/event", Event)
               .then((res) => {
                 console.log(res.data);
               })

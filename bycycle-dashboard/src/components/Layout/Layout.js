@@ -40,6 +40,7 @@ import TodoComponent from "../../pages/tables/todo";
 
 // context
 import { useLayoutState } from "../../context/LayoutContext";
+import EventCreator from "../../pages/tables/todo";
 
 function Layout(props) {
   var classes = useStyles();
@@ -75,7 +76,7 @@ function Layout(props) {
             <Route path="/app/Stations" component={StationTable} />
             <Route path="/app/Reviews" component={ReviewTable} />
             <Route path="/app/Bicycles" component={BicycleTable} />
-            <Route path="/app/todo" component={TodoComponent} />
+            <Route path="/app/ui/todo" component={EventCreator} />
             <Route path="/app/ui/events" component={planner} />
 
             {/* <Route path="/app/Stations" component={StationTable} /> */}

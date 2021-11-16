@@ -290,7 +290,6 @@ const Header = ({ classes, isSidebarOpened, toggleSidebar, ...props ,history}) =
             color="primary"
             onClick={() => {
               console.log('hey');
-              history.push("/login");
             }}
           >
             Sign Out

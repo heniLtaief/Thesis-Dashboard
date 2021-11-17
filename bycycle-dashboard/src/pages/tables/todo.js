@@ -6,50 +6,13 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Calendar from "./planner";
 
-import moment from "moment";
-import { appointments } from "./appointment-data/appointments";
-
 function EventCreator({ data }) {
-  const currentDate = moment();
-  let date = currentDate.date();
-
-  const makeTodayAppointment = (startDate, endDate) => {
-    const days = moment(startDate).diff(endDate, "days");
-    const nextStartDate = moment(startDate)
-      .year(currentDate.year())
-      .month(currentDate.month())
-      .date(date);
-    const nextEndDate = moment(endDate)
-      .year(currentDate.year())
-      .month(currentDate.month())
-      .date(date + days);
-
-    return {
-      startDate: nextStartDate.toDate(),
-      endDate: nextEndDate.toDate(),
-    };
-  };
-
-  {
-    data &&
-      data.map(({ startDate, endDate, ...restArgs }) => {
-        const result = {
-          ...makeTodayAppointment(startDate, endDate),
-          ...restArgs,
-        };
-        date += 1;
-        if (date > 31) date = 1;
-        return result;
-      });
-  }
-
   const [events, setEvent] = useState([]);
   var eventsData = [];
   const getEvents = () => {
     axios
       .get(`http://localhost:3002/event`)
       .then((response) => {
-        console.log("response", response.data);
         setEvent(response.data);
       })
       .catch((err) => {
@@ -67,7 +30,6 @@ function EventCreator({ data }) {
     endDate: "",
     location: "",
   });
-  console.log("eventssss", data);
   function handleChangeEvent(e) {
     e.persist();
     const { name, value } = e.target;
@@ -129,7 +91,6 @@ function EventCreator({ data }) {
       <br></br>
 
       <Calendar data={events}></Calendar>
-      
     </Box>
   );
 }

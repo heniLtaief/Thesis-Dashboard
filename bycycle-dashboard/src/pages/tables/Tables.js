@@ -4,15 +4,7 @@ import BicycleTable from "./BicycleTable";
 import StationTable from "./StationTable";
 import SuggestionTable from "./SuggestionTable";
 import ReviewTable from "./ReviewsTable";
-
-// components
-import PageTitle from "../../components/PageTitle";
-// import Widget from "../../components/Widget";
-// import Table from "../dashboard/components/Table/Table";
-
-// data
-// import mock from "../dashboard/mock";
-
+import EventCreator from "./todo";
 const useStyles = makeStyles((theme) => ({
   tableOverflow: {
     overflow: "auto",
@@ -27,6 +19,7 @@ export default function Tables() {
       <StationTable></StationTable>
       <BicycleTable></BicycleTable>
       <ReviewTable></ReviewTable>
+      <EventCreator></EventCreator>
     </>
   );
 }

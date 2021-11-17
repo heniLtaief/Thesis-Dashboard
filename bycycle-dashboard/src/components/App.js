@@ -1,5 +1,11 @@
 import React from "react";
-import { HashRouter, Route, Switch, Redirect } from "react-router-dom";
+import {
+  HashRouter,
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 
 // components
 import Layout from "./Layout";
@@ -8,15 +14,17 @@ import Layout from "./Layout";
 import Error from "../pages/error";
 import Login from "../pages/login";
 
+import Maps from "../pages/maps/Maps";
 // context
 import { useUserState } from "../context/UserContext";
+import SuggestionTable from "../pages/tables/SuggestionTable";
 
 export default function App() {
   // global
   var { isAuthenticated } = useUserState();
 
   return (
-    <HashRouter>
+    <Router>
       <Switch>
         <Route exact path="/" render={() => <Redirect to="/app/dashboard" />} />
         <Route
@@ -28,7 +36,7 @@ export default function App() {
         <Route path="/login" component={Login} />
         <Route component={Error} />
       </Switch>
-    </HashRouter>
+    </Router>
   );
 
   // #######################################################################

@@ -60,9 +60,7 @@ function EventCreator() {
               .then((res) => {
                 console.log(res.data);
               })
-              .then(() => {
-                window.location.reload();
-              })
+
               .catch((err) => {
                 console.log(err);
               });

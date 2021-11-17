@@ -4,9 +4,9 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useState } from "react";
-import { DropzoneDialog } from "material-ui-dropzone";
+// import { DropzoneDialog } from "material-ui-dropzone";
 import axios from "axios";
-import { Input } from "@material-ui/core";
+// import { Input } from "@material-ui/core";
 function CreateBicycle() {
   const [open, setOpen] = React.useState(false);
   const [Bicycle, SetBicycle] = useState({
@@ -60,9 +60,9 @@ function CreateBicycle() {
             uploadAndGetImageUrl();
             Bicycle.photo = respo;
             await axios
-              .post("http://localhost:3000/bicycle", Bicycle)
+              .post("https://bycyclethesis.herokuapp.com/bicycle", Bicycle)
               .then((res) => {
-                console.log(res);
+                console.log(res.data);
               })
               .then(() => {
                 window.location.reload();

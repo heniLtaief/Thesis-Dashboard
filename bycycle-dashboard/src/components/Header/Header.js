@@ -34,6 +34,7 @@ import {
   toggleSidebar,
 } from "../../context/LayoutContext";
 import { useUserDispatch, signOut } from "../../context/UserContext";
+import { withRouter } from "react-router";
 
 const messages = [
   {
@@ -88,7 +89,7 @@ const notifications = [
   },
 ];
 
-export default function Header(props) {
+function Header({ history }) {
   var classes = useStyles();
 
   // global
@@ -106,7 +107,7 @@ export default function Header(props) {
 
   return (
     <AppBar position="fixed" className={classes.appBar}>
-      <Toolbar  className={classes.toolbar}>
+      <Toolbar className={classes.toolbar}>
         <IconButton
           color="inherit"
           onClick={() => toggleSidebar(layoutDispatch)}
@@ -325,9 +326,11 @@ export default function Header(props) {
           </MenuItem>
           <div className={classes.profileMenuUser}>
             <Typography
+              onClick={() => {
+                history.push("/login");
+              }}
               className={classes.profileMenuLink}
               color="primary"
-              onClick={() => signOut(userDispatch, props.history)}
             >
               Sign Out
             </Typography>
@@ -337,3 +340,5 @@ export default function Header(props) {
     </AppBar>
   );
 }
+
+export default withRouter(Header);

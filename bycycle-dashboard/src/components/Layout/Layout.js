@@ -1,15 +1,16 @@
 import * as React from "react";
-import { Route, Switch, Redirect, withRouter } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+  withRouter,
+} from "react-router-dom";
+
 import classnames from "classnames";
 import { IconButton, Link } from "@material-ui/core";
 import Icon from "@mdi/react";
 import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-
-import CreateStation from "./CreateStation";
-import CreateBicycle from "./CreateBicycle";
-import CreateSuggestion from "./CreateSuggestion";
 
 //icons
 import { mdiGithub as GithubIcon } from "@mdi/js";
@@ -33,10 +34,13 @@ import SuggestionTable from "../../pages/tables/SuggestionTable";
 import StationTable from "../../pages/tables/StationTable";
 import ReviewTable from "../../pages/tables/ReviewsTable";
 import BicycleTable from "../../pages/tables/BicycleTable";
+import planner from "../../pages/tables/planner";
+
+import TodoComponent from "../../pages/tables/todo";
 
 // context
 import { useLayoutState } from "../../context/LayoutContext";
-import { Title } from "@material-ui/icons";
+import EventCreator from "../../pages/tables/todo";
 
 function Layout(props) {
   var classes = useStyles();
@@ -47,7 +51,7 @@ function Layout(props) {
   return (
     <div className={classes.root}>
       <>
-        <Header history={props.history} />
+        <Header />
         <Sidebar />
         <div
           className={classnames(classes.content, {
@@ -72,9 +76,11 @@ function Layout(props) {
             <Route path="/app/Stations" component={StationTable} />
             <Route path="/app/Reviews" component={ReviewTable} />
             <Route path="/app/Bicycles" component={BicycleTable} />
+            <Route path="/app/ui/todo" component={EventCreator} />
+            <Route path="/app/ui/events" component={planner} />
 
             {/* <Route path="/app/Stations" component={StationTable} /> */}
-
+            {/* TodoComponent */}
             {/* <Route path="/app/ui/charts" component={Charts} />
             <Route path="/app/ui/charts" component={Charts} /> */}
           </Switch>

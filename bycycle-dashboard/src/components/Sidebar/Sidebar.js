@@ -14,6 +14,7 @@ import {
   EditLocation as EditLocationIcons,
   Create as CreateIcon,
   ShowChart as ShowChartIcon,
+  CalendarToday as CalendarTodayIcon,
 } from "@material-ui/icons";
 import { useTheme } from "@material-ui/styles";
 import { withRouter, useHistory } from "react-router-dom";
@@ -34,12 +35,6 @@ import {
 
 const structure = [
   { id: 0, label: "Dashboard", link: "/app/dashboard", icon: <HomeIcon /> },
-  {
-    id: 1,
-    label: "Features",
-    link: "/app/typography",
-    icon: <TypographyIcon />,
-  },
 
   {
     id: 2,
@@ -53,7 +48,7 @@ const structure = [
     link: "/app/Stations",
     icon: <EditLocationIcons />,
     children: [
-      { label: "Icons", link: "/app/ui/icons" },
+      // { label: "Icons", link: "/app/ui/icons" },
       { label: "Locations", link: "/app/ui/maps" },
       { label: "Stations", link: "/app/Stations" },
     ],
@@ -81,9 +76,9 @@ const structure = [
     id: 7,
     label: "Planner",
     link: "/app/planner",
-    icon: <ShowChartIcon />,
+    icon: <CalendarTodayIcon />,
     children: [
-      { label: "Todo", link: "/app/ui/todo" },
+      { label: "Event creation", link: "/app/ui/todo" },
       { label: "events", link: "/app/ui/events" },
     ],
   },

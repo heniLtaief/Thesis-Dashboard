@@ -36,7 +36,6 @@ export default function StationTable() {
     getAllStations();
   }, []);
 
-
   return (
     <>
       <PageTitle title="Stations" />

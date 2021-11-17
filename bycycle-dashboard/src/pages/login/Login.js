@@ -11,7 +11,6 @@ import {
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
-import { withRouter } from "react-router-dom";
 import classnames from "classnames";
 import axios from "axios";
 // testing auth with redux
@@ -23,12 +22,13 @@ import useStyles from "./styles";
 // logo
 import google from "../../images/google.svg";
 import bg from "../../images/Onboarding.png";
+import { withRouter } from "react-router";
 
 // context
 import { useUserDispatch, loginUser } from "../../context/UserContext";
 import CreateBicycle from "../../components/Layout/CreateBicycle";
 
-function Login(props) {
+function Login({ history }) {
   var classes = useStyles();
   // global
   // var userDispatch = useUserDispatch();
@@ -166,6 +166,9 @@ function Login(props) {
                     onClick={
                       () => {
                         checkAdmin();
+                        if (adminLoggedIn) {
+                          history.push("/app/dashboard");
+                        }
                       }
                       //   // () =>
                       //   //   loginUser(
@@ -316,4 +319,4 @@ function Login(props) {
   );
 }
 
-export default Login;
+export default withRouter(Login);

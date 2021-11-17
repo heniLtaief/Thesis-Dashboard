@@ -34,6 +34,8 @@ import {
   toggleSidebar,
 } from "../../context/LayoutContext";
 import { useUserDispatch, signOut } from "../../context/UserContext";
+import { Button } from "reactstrap";
+import { withRouter } from "react-router";
 
 const messages = [
   {
@@ -88,7 +90,7 @@ const notifications = [
   },
 ];
 
-export default function Header(props) {
+function Header({ history }) {
   var classes = useStyles();
 
   // global
@@ -325,9 +327,11 @@ export default function Header(props) {
           </MenuItem>
           <div className={classes.profileMenuUser}>
             <Typography
+              onClick={() => {
+                history.push("/login");
+              }}
               className={classes.profileMenuLink}
               color="primary"
-              onClick={localStorage.removeItem("auth")}
             >
               Sign Out
             </Typography>
@@ -337,3 +341,5 @@ export default function Header(props) {
     </AppBar>
   );
 }
+
+export default withRouter(Header);

@@ -9,6 +9,9 @@
     "node-fetch": "^2.6.1"
   },
   "dependencies": {
+    "@devexpress/dx-react-core": "^2.7.6",
+    "@devexpress/dx-react-scheduler": "^2.7.6",
+    "@devexpress/dx-react-scheduler-material-ui": "^2.7.6",
     "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
     "@material-ui/core": "^4.12.3",
@@ -22,9 +25,11 @@
     "@mui/styled-engine": "^5.1.0",
     "apexcharts": "^3.24.0",
     "axios": "^0.24.0",
+    "babel": "^6.23.0",
     "classnames": "^2.2.6",
     "font-awesome": "^4.7.0",
     "material-ui-dropzone": "^3.5.0",
+    "material-ui-icons": "^1.0.0-beta.36",
     "moment": "^2.29.1",
     "mui-datatables": "^3.7.4",
     "react": "^16.14.0",

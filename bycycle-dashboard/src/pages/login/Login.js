@@ -11,7 +11,6 @@ import {
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
-import { withRouter } from "react-router-dom";
 import classnames from "classnames";
 import axios from "axios";
 // testing auth with redux
@@ -23,6 +22,7 @@ import useStyles from "./styles";
 // logo
 import google from "../../images/google.svg";
 import bg from "../../images/Onboarding.png";
+import { withRouter } from "react-router";
 
 // context
 import { useUserDispatch, loginUser } from "../../context/UserContext";
@@ -319,4 +319,4 @@ function Login({ history }) {
   );
 }
 
-export default Login;
+export default withRouter(Login);

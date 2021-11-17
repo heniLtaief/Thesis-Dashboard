@@ -1,4 +1,6 @@
 import * as React from "react";
+
+import { useEffect, useState } from "react";
 import Paper from "@material-ui/core/Paper";
 import { ViewState } from "@devexpress/dx-react-scheduler";
 import {
@@ -16,6 +18,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { fade } from "@material-ui/core/styles/colorManipulator";
 import appointments from "./appointment-data/today-appointments";
 import monthlyAppointment from "./appointment-data/month-appointments";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   todayCell: {
@@ -73,23 +76,44 @@ const DayScaleCell = (props) => {
   return <WeekView.DayScaleCell {...props} />;
 };
 
-export default () => (
-  <Paper>
-    <Scheduler data={appointments} height={660}>
-      <ViewState />
-      <WeekView
-        startDayHour={8}
-        endDayHour={19}
-        timeTableCellComponent={TimeTableCell}
-        dayScaleCellComponent={DayScaleCell}
-      />
-      <MonthView />
-      <Toolbar />
-      <DateNavigator />
-      <TodayButton />
-      <Appointments />
-      <AppointmentTooltip showCloseButton showOpenButton />
-      <AppointmentForm />
-    </Scheduler>
-  </Paper>
-);
+export default () => {
+  const [events, setEvent] = useState([]);
+
+  const getEvents = () => {
+    axios
+      .get(`http://localhost:3002/event`)
+      .then((response) => {
+        console.log("response", response);
+        setEvent(response.data);
+      })
+      .catch((err) => {
+        console.log("err", err);
+      });
+  };
+
+  useEffect(() => {
+    getEvents();
+  }, []);
+  console.log("events", events);
+
+  return (
+    <Paper>
+      <Scheduler data={events} height={660}>
+        <ViewState />
+        <WeekView
+          startDayHour={8}
+          endDayHour={19}
+          timeTableCellComponent={TimeTableCell}
+          dayScaleCellComponent={DayScaleCell}
+        />
+        <MonthView />
+        <Toolbar />
+        <DateNavigator />
+        <TodayButton />
+        <Appointments />
+        <AppointmentTooltip showCloseButton showOpenButton />
+        <AppointmentForm />
+      </Scheduler>
+    </Paper>
+  );
+};

@@ -23,7 +23,6 @@ function EventCreator({ data }) {
     getEvents();
   }, []);
 
-  console.log(eventsData);
   const [Event, SetEvent] = useState({
     title: "",
     startDate: "",
@@ -84,9 +83,6 @@ function EventCreator({ data }) {
           Click Here to Create
         </Button>
       </div>
-      <br></br>
-      <br></br>
-      <br></br>
       <br></br>
       <br></br>
 

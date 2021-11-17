@@ -10,7 +10,7 @@ import {
   Fade,
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
-
+import PasswordField from "material-ui-password-field";
 import classnames from "classnames";
 import axios from "axios";
 // testing auth with redux
@@ -138,7 +138,7 @@ function Login({ history }) {
                 type="text"
                 fullWidth
               />
-              <TextField
+              <PasswordField
                 id="password"
                 name="LoginPassword"
                 InputProps={{
@@ -238,14 +238,17 @@ function Login({ history }) {
                     input: classes.textField,
                   },
                 }}
-                // value={loginValue}
                 onChange={handleRegister}
                 margin="normal"
                 placeholder="Email Adress"
                 type="email"
                 fullWidth
               />
-              <TextField
+
+              <PasswordField
+                hintText="At least 8 characters"
+                floatingLabelText="Enter your password"
+                errorText="Your password is too short"
                 id="password"
                 name="Password"
                 InputProps={{
@@ -254,13 +257,13 @@ function Login({ history }) {
                     input: classes.textField,
                   },
                 }}
-                // value={passwordValue}
                 onChange={handleRegister}
                 margin="normal"
                 placeholder="Password"
                 type="password"
                 fullWidth
               />
+
               <div className={classes.creatingButtonContainer}>
                 {isLoading ? (
                   <CircularProgress size={26} />

@@ -77,13 +77,11 @@ const DayScaleCell = (props) => {
   return <WeekView.DayScaleCell {...props} />;
 };
 
-export default function Calendar({ data }) {
-  console.log("data", data);
+export default function Calendar() {
   return (
     <Paper>
       {/* <Scheduler data={data} height={660}> */}
       <Scheduler data={appointments} height={660}>
-
         <ViewState />
         {/* <EventCreator data={events}></EventCreator> */}
         <WeekView

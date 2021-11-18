@@ -9,7 +9,6 @@ import {
   TextField,
   Fade,
 } from "@material-ui/core";
-import { Link } from "react-router-dom";
 import PasswordField from "material-ui-password-field";
 import classnames from "classnames";
 import axios from "axios";
@@ -138,10 +137,13 @@ function Login({ history }) {
                 type="text"
                 fullWidth
               />
-              <PasswordField
-                id="password"
+              <TextField
+                hintText="At least 8 characters"
+                placeholder="Enter your password"
+                errorText="Your password is too short"
+                // id="password"
                 name="LoginPassword"
-                InputProps={{
+                inputprops={{
                   classes: {
                     underline: classes.textFieldUnderline,
                     input: classes.textField,
@@ -150,8 +152,8 @@ function Login({ history }) {
                 // value={passwordValue}
                 onChange={handleLogin}
                 margin="normal"
-                placeholder="Password"
-                type="password"
+                // placeholder="Password"
+                // type="password"
                 fullWidth
               />
               <div className={classes.formButtons}>
@@ -245,9 +247,9 @@ function Login({ history }) {
                 fullWidth
               />
 
-              <PasswordField
+              <TextField
                 hintText="At least 8 characters"
-                floatingLabelText="Enter your password"
+                placeholder="Enter your password"
                 errorText="Your password is too short"
                 id="password"
                 name="Password"
@@ -259,8 +261,6 @@ function Login({ history }) {
                 }}
                 onChange={handleRegister}
                 margin="normal"
-                placeholder="Password"
-                type="password"
                 fullWidth
               />
 

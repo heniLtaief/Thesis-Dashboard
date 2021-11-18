@@ -9,7 +9,6 @@ import {
   TextField,
   Fade,
 } from "@material-ui/core";
-import PasswordField from "material-ui-password-field";
 import classnames from "classnames";
 import axios from "axios";
 // testing auth with redux
@@ -93,7 +92,6 @@ function Login({ history }) {
         LoginAdmin,
       })
       .then((adminLogged) => {
-        console.log("ADMIN IN", adminLogged.data.Username.length);
         setAdminLog(true);
         localStorage.setItem("auth", adminLogged.data.Username);
       })
@@ -101,7 +99,6 @@ function Login({ history }) {
         console.log(err);
       });
   };
-  console.log(adminLoggedIn);
   return (
     <Grid container className={classes.container}>
       <div className={classes.logotypeContainer}>

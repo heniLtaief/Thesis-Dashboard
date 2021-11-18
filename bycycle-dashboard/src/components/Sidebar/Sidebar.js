@@ -125,16 +125,6 @@ function Sidebar({ location, history }) {
     };
   });
 
-  const R = () => {
-    console.log("ihm here");
-    window.location.reload();
-    console.log("hello");
-  };
-
-  const H = () => {
-    let history = useHistory();
-  };
-
   return (
     <Drawer
       variant={isPermanent ? "permanent" : "temporary"}
@@ -163,7 +153,6 @@ function Sidebar({ location, history }) {
       <List className={classes.sidebarList}>
         {structure.map((link) => (
           <SidebarLink
-            onSubmit={() => R()}
             key={link.id}
             location={location}
             isSidebarOpened={isSidebarOpened}

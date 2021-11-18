@@ -34,7 +34,6 @@ import {
   toggleSidebar,
 } from "../../context/LayoutContext";
 import { useUserDispatch, signOut } from "../../context/UserContext";
-import { Button } from "reactstrap";
 import { withRouter } from "react-router";
 
 const messages = [
